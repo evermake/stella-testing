@@ -1,0 +1,18 @@
+{
+  "name": "stella-testing",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/cli-progress": "^3.11.5"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cli-progress": "^3.12.0",
+    "commander": "^11.1.0",
+    "glob": "^10.3.10",
+    "playwright": "^1.41.2"
+  }
+}
