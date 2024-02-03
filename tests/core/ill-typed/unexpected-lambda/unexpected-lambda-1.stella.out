@@ -1,0 +1,9 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_LAMBDA]
+expected an expression of a non-function type
+  Nat
+but got an anonymous function
+  fn (n : Nat)
+{
+  return f (n)
+}

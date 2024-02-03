@@ -1,0 +1,5 @@
+language core;
+
+fn main(x : Nat) -> Nat {
+    return succ(fn(x : Nat) { return 0; });
+}

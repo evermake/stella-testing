@@ -1,0 +1,11 @@
+language core;
+extend with #structural-patterns, #sum-types;
+
+fn main(input : Nat + (Bool + (fn (Nat) -> Nat))) -> Nat {
+  return
+    match input {
+        inl(n) => n
+      | inr(inl(b)) => if b then succ(0) else 0
+      | inr(inr(f)) => f(succ(0))
+   }
+}

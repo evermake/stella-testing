@@ -1,0 +1,5 @@
+language core;
+
+fn main(n : Nat) -> Nat {
+  return succ(n)(n);
+}

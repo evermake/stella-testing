@@ -1,0 +1,12 @@
+language core;
+
+extend with
+  #universal-types;
+
+generic fn identity[X](x : X) -> X {
+  return x
+}
+
+fn main(x : Nat) -> Nat {
+  return identity[Nat](x)
+}

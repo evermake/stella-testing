@@ -1,0 +1,10 @@
+language core;
+
+// a constant function, specialized to Nat
+fn Nat::applyToZero(f : (fn(Nat) -> Nat)) -> Nat {
+    return f(0);
+}
+
+fn main(x : Nat) -> Nat {
+    return succ(Nat::applyToZero(fn(x : Nat) { return 0; }));
+}

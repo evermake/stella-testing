@@ -1,0 +1,11 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_TUPLE_INDEX_OUT_OF_BOUNDS]
+unexpected access to component number 3
+in a tuple
+  p
+of length2
+of type
+  
+{
+  Nat, Nat
+}

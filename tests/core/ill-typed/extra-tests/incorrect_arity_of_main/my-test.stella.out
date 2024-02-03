@@ -1,0 +1,3 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_INCORRECT_ARITY_OF_MAIN]
+main function must have exactly one parameter

@@ -1,0 +1,26 @@
+language core;
+
+extend with #let-bindings;
+
+// addition of natural numbers
+fn Nat::add(n : Nat) -> fn(Nat) -> Nat {
+  return fn(m : Nat) {
+    return Nat::rec(n, m, fn(i : Nat) {
+      return fn(r : Nat) {
+        return succ( r ); // r := r + 1
+      };
+    });
+  };
+}
+
+fn Nat::average(n : Nat) -> fn(Nat) -> Nat {
+  return fn(m : Nat) {
+    return let sum = Nat::add(n)(m) in
+           let two = succ(succ(0)) in
+           Nat::add(sum)(two)
+  }
+}
+
+fn main(n : Nat) -> Nat {
+  return Nat::average(n)(succ(0));
+}

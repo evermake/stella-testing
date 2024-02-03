@@ -1,0 +1,9 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_LAMBDA]
+expected an expression of a non-function type
+  Bool
+but got an anonymous function
+  fn (x : Nat)
+{
+  return x
+}

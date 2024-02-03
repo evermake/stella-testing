@@ -1,0 +1,40 @@
+language core;
+
+// logical operator not
+fn Bool::not(b : Bool) -> Bool {
+  return if b then false else true;
+}
+
+// logical operator or
+fn Bool::or(a : Bool) -> (fn(Bool) -> Bool) {
+  return fn(b : Bool) {
+    return if a then true else b;
+  };
+}
+
+// logical operator and
+fn Bool::and(a : Bool) -> (fn(Bool)->Bool) {
+  return fn(b : Bool) {
+    return if a then b else false;
+  };
+}
+
+// logical operator xor
+fn Bool::xor(a : Bool) -> (fn(Bool)->Bool) {
+  return fn(b : Bool) {
+    return
+        Bool::or(Bool::and(a)(Bool::not(b)))(Bool::and(Bool::not(a))(b));
+  };
+}
+
+
+fn main(n : Bool) -> Bool {
+  return Bool::xor
+    (Bool::and  // always false
+      (n)
+      (Bool::not(n)))
+    (Bool::or   // always true
+      (Bool::not(n))
+      (n));
+}
+

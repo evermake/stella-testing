@@ -1,0 +1,15 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TUPLE_LENGTH]
+expected 3 components
+for a tuple of type
+  
+{
+  Nat, Nat, Nat
+}
+
+but got 4
+in tuple
+  
+{
+  x, succ (x), succ (succ (x)), 0
+}

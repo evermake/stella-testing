@@ -1,0 +1,5 @@
+language core;
+
+fn main(x : Bool) -> fn(Nat) -> Nat {
+    return if x then succ(0) else 0;
+}

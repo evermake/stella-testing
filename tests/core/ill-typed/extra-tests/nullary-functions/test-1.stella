@@ -1,0 +1,31 @@
+language core;
+
+extend with #nullary-functions;
+
+fn Nat::delay(n : Nat) -> fn() -> Nat {
+  return fn() { return n }
+}
+
+fn Nat_to_Nat::delay(n : fn(Nat) -> Nat) -> fn() -> fn(Nat) -> Nat {
+  return fn() { return n }
+}
+
+fn Nat_to_Nat_to_Nat_to_Nat::delay(n : fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat)
+  -> fn() -> fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat {
+  return fn() { return n }
+}
+
+fn apply(f : fn(Nat) -> Nat) -> (fn(Nat) -> Nat) {
+  return f;
+}
+
+fn const_apply() -> fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat {
+  return Nat_to_Nat_to_Nat_to_Nat::delay(apply)
+}
+
+fn increase (n : Nat) -> Nat {
+  return succ(n);
+}
+fn main(n : Nat) -> Nat {
+  return const_apply()(Nat_to_Nat::delay(increase)())(Nat::delay(n)());
+}

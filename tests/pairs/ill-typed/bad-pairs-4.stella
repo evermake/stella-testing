@@ -1,0 +1,10 @@
+language core;
+extend with #pairs;
+
+fn swap(p : {Nat, Bool}) -> {Nat, Bool} {
+  return {p.1, false}
+}
+
+fn main(x : Nat) -> Nat {
+  return swap(swap({0, x})).1
+}

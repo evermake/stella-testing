@@ -1,0 +1,13 @@
+language core;
+
+fn nest(a : Nat) -> (fn(Nat)->(fn(Nat)->Nat)) {
+	return fn(b : Nat){
+    	return fn(c : Nat){
+        	return 0;
+        };
+  	};
+}
+
+fn main(a : Nat) -> Nat {
+    return nest(0)(0)(0);
+}

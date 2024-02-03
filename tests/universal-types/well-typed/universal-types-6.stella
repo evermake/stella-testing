@@ -1,0 +1,17 @@
+language core;
+
+extend with
+  #universal-types;
+
+generic fn test[Y](y : Y) ->
+  fn(forall X. fn(X) -> (forall Y. fn(Y) -> X)) -> Y {
+  return fn(f : forall X. fn(X) -> (forall Y. fn(Y) -> X)) {
+    return f[Y](y)[Bool](true)
+  }
+}
+
+fn main(x : Nat) -> Nat {
+  return test[Nat](x)(generic [X] fn(x : X) {
+    return generic [Y] fn(y : Y) { return x }
+  })
+}

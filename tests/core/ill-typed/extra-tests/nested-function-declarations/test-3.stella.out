@@ -1,0 +1,8 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  fn (Nat) -> fn (Nat) -> Nat
+but got
+  fn (Nat) -> Nat
+for expression
+  Nat2Nat::const (Nat::add (m))

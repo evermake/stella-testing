@@ -1,0 +1,12 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat
+but got
+  fn (Nat) -> Nat
+for expression
+  twice (fn (x : Nat)
+{
+  return n
+}
+)

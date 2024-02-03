@@ -1,0 +1,13 @@
+language core;
+
+fn main(f : Nat) -> Nat {
+  return if true
+  	then f
+  	else (fn (p : Bool) {
+       return if p
+          then succ(0)
+          else
+            (fn (k : Bool)
+            		{ return if k then succ(f) else succ(succ(f)); });
+    })(true);
+}

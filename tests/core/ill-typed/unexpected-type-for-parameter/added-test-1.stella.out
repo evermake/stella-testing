@@ -1,0 +1,15 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_PARAMETER]
+expected type
+  Nat
+but got
+  fn (Nat) -> Nat
+for the parameter first
+in function
+  fn (first : fn (Nat) -> Nat)
+{
+  return fn (second : fn (Nat) -> Nat)
+  {
+    return if flag then first else second
+  }
+}

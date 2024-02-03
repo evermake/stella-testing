@@ -1,0 +1,20 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  
+{
+  Nat, Nat
+}
+
+but got
+  
+{
+  Nat, Bool
+}
+
+for expression
+  swap (
+{
+  0, x
+}
+)

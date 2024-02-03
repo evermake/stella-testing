@@ -1,0 +1,12 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_INCORRECT_NUMBER_OF_ARGUMENTS]
+expected 2 arguments
+for the function
+  f as (fn (fn (Bool) -> Nat, Nat) -> Nat)
+but got 3 arguments
+in the function call
+  f (fn (x : Bool)
+{
+  return if x then n else succ (n)
+}
+, 0, true)

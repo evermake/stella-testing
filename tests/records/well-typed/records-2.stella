@@ -1,0 +1,10 @@
+language core;
+extend with #records;
+
+fn rotate3(p : {x : Nat, y : Bool}) -> {x : Bool, x : Nat} {
+  return {x = p.y, x = p.x}
+}
+
+fn main(x : Nat) -> {x : Bool, x : Nat} {
+  return rotate3({x = x, y = true})
+}

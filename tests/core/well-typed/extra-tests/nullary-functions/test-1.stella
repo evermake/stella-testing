@@ -1,0 +1,18 @@
+language core;
+
+extend with #nullary-functions;
+
+fn apply(f : fn(Nat) -> Nat) -> (fn(Nat) -> Nat) {
+  return f;
+}
+
+fn const_apply() -> fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat {
+  return apply
+}
+
+fn increase (n : Nat) -> Nat {
+  return succ(n);
+}
+fn main(n : Nat) -> Nat {
+  return const_apply()(increase)(n);
+}

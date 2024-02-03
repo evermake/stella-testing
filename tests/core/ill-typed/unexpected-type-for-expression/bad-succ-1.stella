@@ -1,0 +1,5 @@
+language core;
+
+fn main(x : Nat) -> Nat {
+    return succ(succ(succ(if true then succ(false) else 0)));
+}

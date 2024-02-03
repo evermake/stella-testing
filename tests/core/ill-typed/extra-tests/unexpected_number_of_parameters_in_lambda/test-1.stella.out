@@ -1,0 +1,11 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_NUMBER_OF_PARAMETERS_IN_LAMBDA]
+expected 2 parameters
+for a function type
+  fn (Nat, Nat) -> Nat
+but got 1 parameters
+in function
+  fn (x : Nat)
+{
+  return a
+}

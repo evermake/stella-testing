@@ -1,0 +1,15 @@
+language core;
+
+extend with
+  #comparison-operators,
+  #logical-operators,
+  #natural-literals,
+  #let-bindings,
+  #panic;
+
+fn main(n : Nat) -> Nat {
+  return
+    let n = 3 in
+    let m = 4 in
+    if m == 0 then panic! else 1
+}

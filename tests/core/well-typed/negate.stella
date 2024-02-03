@@ -1,0 +1,9 @@
+language core;
+
+fn toggle(f : Bool) -> Bool {
+    return if f then false else true;
+}
+
+fn main(b : Bool) -> Bool {
+  return toggle(b);
+}

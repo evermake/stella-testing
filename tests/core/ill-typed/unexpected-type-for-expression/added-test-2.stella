@@ -1,0 +1,23 @@
+language core;
+
+fn B2N(a : Bool) -> Nat {
+    return if a then 0 else succ(0);
+}
+
+fn Bool::add_once(a : Bool) -> Nat {
+    return succ(B2N(a));
+}
+
+fn Bool::add_twice(a : Bool) -> Nat {
+    return succ(succ(B2N(a)));
+}
+
+fn Bool::function_chooser(flag : Bool) -> (fn(fn(Nat) -> Nat) -> Nat){
+    return fn(first : (fn(Nat) -> Nat) ) {
+        return if flag then first(flag) else Bool::add_twice(flag);
+    };
+}
+
+fn main(n : Nat) -> Nat {
+    return Bool::function_chooser(true)(Bool::add_once);
+}

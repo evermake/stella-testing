@@ -1,0 +1,11 @@
+language core;
+
+extend with #multiparameter-functions;
+
+fn mk_const(a : Nat) -> fn(Nat, Nat) -> Nat {
+  return fn(x : Nat, y : Nat) { return Nat::iszero(y) }
+}
+
+fn main (n : Nat) -> Nat {
+  return mk_const(n)(0, 0);
+}

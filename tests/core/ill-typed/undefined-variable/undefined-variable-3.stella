@@ -1,0 +1,13 @@
+language core;
+
+fn iszero(n : Nat) -> Bool {
+    return Nat::rec(n, true, fn(i : Nat) {
+        return fn(r : Bool) {
+            return true;
+        };
+    });
+}
+
+fn main(n : Nat) -> Nat {
+  return if iszero(r) then 0 else succ(0);
+}

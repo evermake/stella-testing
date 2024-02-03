@@ -1,0 +1,14 @@
+language core;
+extend with #variants;
+
+fn g(x : <| number : Nat, boolean : Bool, function : fn(Nat) -> Nat |>) -> Nat {
+  return match x {
+      <| number   = n |> => succ(n)
+    | <| function = f |> => f(f(succ(0)))
+    | <| boolean  = b |> => if b then succ(0) else 0
+  }
+}
+
+fn main(x : Nat) -> Nat {
+  return g(<| function = fn(n : Nat) { return g(<| number = n |>) } |>)
+}

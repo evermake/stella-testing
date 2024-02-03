@@ -1,0 +1,11 @@
+language core;
+
+extend with #multiparameter-functions, #logical-operators;
+
+fn or_fn(n : Bool, m : Nat) -> Bool {
+    return n or m;
+}
+
+fn main(n : Nat) -> Bool {
+  return or_fn(true, n);
+}

@@ -1,0 +1,8 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_FUNCTION]
+expected a one-argument function type but got
+  Nat
+for the expression
+  p
+in the expression
+  fix (p)

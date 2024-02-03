@@ -1,0 +1,16 @@
+language core;
+extend with #lists;
+
+fn test(b : Bool) -> Nat {
+    return if b then 0 else succ(succ(0));
+}
+
+fn length(list : [Nat]) -> Nat {
+  return if List::isempty(list)
+    then 0
+    else succ(List::head(list))
+}
+
+fn main(n : Nat) -> Nat {
+  return length([succ(0), test(false), n])
+}

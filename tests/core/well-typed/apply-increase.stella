@@ -1,0 +1,12 @@
+language core;
+
+fn apply(f : fn(Nat) -> Nat) -> (fn(Nat) -> Nat) {
+  return f;
+}
+
+fn increase (n : Nat) -> Nat {
+  return succ(n);
+}
+fn main(n : Nat) -> Nat {
+  return apply(increase)(n);
+}

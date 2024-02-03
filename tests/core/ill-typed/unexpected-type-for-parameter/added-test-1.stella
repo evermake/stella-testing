@@ -1,0 +1,21 @@
+language core;
+
+fn function_chooser(flag : Bool) -> (fn(Nat) -> Nat){
+    return fn(first : (fn(Nat) -> Nat) ) {
+        return fn(second : (fn(Nat) -> Nat) ) {
+            return if flag then first else second;
+        };
+    };
+}
+
+fn add_once(a : Nat) -> Nat {
+    return succ(a);
+}
+
+fn add_twice(a : Nat) -> Nat {
+    return succ(add_once(a));
+}
+
+fn main(n : Nat) -> Nat {
+    return function_chooser(false)(add_once)(add_twice)(n);
+}

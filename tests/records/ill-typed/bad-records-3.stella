@@ -1,0 +1,10 @@
+language core;
+extend with #records;
+
+fn getSome(p : {x : Nat, y : Nat, z : Bool}) -> Nat {
+  return p.z
+}
+
+fn main(x : Nat) -> Nat {
+  return getSome({x = x, y = succ(x), z = false})
+}

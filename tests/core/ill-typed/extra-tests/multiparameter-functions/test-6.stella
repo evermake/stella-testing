@@ -1,0 +1,23 @@
+language core;
+
+extend with #multiparameter-functions;
+
+fn iszero(n : Nat) -> Bool {
+    return Nat::rec(n, true, fn(i : Nat) {
+        return fn(r : Bool) {
+            return true
+        }
+    })
+}
+
+fn f(g : fn(Bool) -> Nat, n : Nat) -> Nat {
+    return g(if iszero(n) then false else true)
+}
+
+fn k(n : Nat) -> fn(Bool) -> Bool {
+    return fn(x : Bool) { return if x then false else Nat::iszero(succ(n)) }
+}
+
+fn main(n : Nat) -> Nat {
+  return f(k(n), 0)
+}

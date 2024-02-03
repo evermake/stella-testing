@@ -1,0 +1,9 @@
+language core;
+
+fn plus5(n : Nat) -> Nat {
+  return succ(succ(succ(succ(succ(n)))));
+}
+
+fn main(n : Bool) -> Nat {
+  return if n then plus5(plus5(0)) else succ(0);
+}

@@ -1,0 +1,10 @@
+language core;
+extend with #general-recursion;
+
+fn swap(p : Bool) -> Bool {
+  return if p then swap(true) else succ(0)
+}
+
+fn main(x : Bool) -> Bool {
+  return swap(x)
+}

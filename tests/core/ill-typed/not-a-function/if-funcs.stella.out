@@ -1,0 +1,8 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_FUNCTION]
+expected a function type but got
+  Nat
+for the expression
+  if Nat::iszero (n) then f (n) else g (f) (n)
+in the function call
+  (if Nat::iszero (n) then f (n) else g (f) (n)) (n)

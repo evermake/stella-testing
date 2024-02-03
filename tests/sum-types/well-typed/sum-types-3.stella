@@ -1,0 +1,13 @@
+language core;
+extend with #sum-types;
+
+fn g(x : Nat + Bool) -> Nat {
+  return match x {
+      inl(n) => succ(n)
+    | inr(bf) => if bf then 0 else succ(0)
+  }
+}
+
+fn main(x : Nat) -> Nat {
+  return g(inr(false))
+}

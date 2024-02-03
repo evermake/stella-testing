@@ -1,0 +1,12 @@
+language core;
+extend with #lists;
+
+fn length(list : [Nat]) -> Nat {
+  return if List::isempty(list)
+    then 0
+    else succ(length(List::tail(list)))
+}
+
+fn main(n : Nat) -> Nat {
+  return length([n, n, n, n, n])
+}

@@ -1,0 +1,11 @@
+language core;
+
+extend with #multiparameter-functions, #arithmetic-operators;
+
+fn multiply_fn(n : Nat, m : Bool) -> Nat {
+    return n * m;
+}
+
+fn main(n : Nat) -> Nat {
+  return multiply_fn(n, true);
+}

@@ -1,0 +1,9 @@
+language core;
+extend with #type-aliases;
+
+type NonNegative = Nat
+type Natural = NonNegative
+
+fn main(n : NonNegative) -> Natural {
+  return true;
+}

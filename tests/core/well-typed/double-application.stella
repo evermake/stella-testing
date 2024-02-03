@@ -1,0 +1,10 @@
+language core;
+fn scc (n : Nat) -> Nat {
+  	return succ(n);
+  }
+fn abc (n : Nat) -> (fn(Nat) -> Nat) {
+	return scc;
+}
+fn main(n : Nat) -> Nat {
+  return succ(abc(n)(n));
+}

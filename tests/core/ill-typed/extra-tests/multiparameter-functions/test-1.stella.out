@@ -1,0 +1,12 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_PARAMETER]
+expected type
+  Nat
+but got
+  Bool
+for the parameter y
+in function
+  fn (x : Nat, y : Bool)
+{
+  return a
+}

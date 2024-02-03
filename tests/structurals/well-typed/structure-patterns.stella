@@ -1,0 +1,41 @@
+language core;
+extend with #structural-patterns, #sum-types, #records, #variants, #tuples;
+
+fn func1(input : Nat + (Bool + (fn (Nat) -> Nat))) -> Nat {
+  return
+    match input {
+        inl(n) => succ(n)
+      | inl(succ(0)) => succ(succ(0))
+      | inr(inl(true)) => 0
+      | inr(inl(false)) => succ(0)
+      | inr(inr(f)) => f(succ(0))
+    }
+}
+
+fn func2(input : {current : Nat, next : Nat}) -> Nat {
+  return
+    match input {
+        {current = 0, next = 0} => 0
+      | {current = 0, next = succ(0)} => succ(0)
+    }
+}
+
+fn func3(input : <| value : Nat, failure : Unit |>) -> Nat {
+  return
+    match input {
+        <| value = n |> => succ(n)
+      | <| failure = unit |> => 0
+    }
+}
+
+fn func4(input : {Nat, Nat, Nat}) -> Nat {
+  return
+    match input {
+        {0, 0, 0} => 0
+      | {0, 0, succ(0)} => succ(0)
+    }
+}
+
+fn main(input : Nat) -> Nat {
+  return input 
+}

@@ -1,0 +1,5 @@
+language core;
+
+fn main(x : Nat) -> Nat {
+    return (if false then true else fn(x : Nat) { return x; })(0);
+}

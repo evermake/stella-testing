@@ -1,0 +1,11 @@
+language core;
+
+extend with #multiparameter-functions;
+
+fn mk_const(a : Nat) -> fn(Nat, Bool) -> Nat {
+  return fn(x : Nat, a : Bool) { return a }
+}
+
+fn main (n : Nat) -> Nat {
+  return mk_const(n)(0, false);
+}

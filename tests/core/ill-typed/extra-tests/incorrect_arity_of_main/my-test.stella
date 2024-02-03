@@ -1,0 +1,11 @@
+language core;
+
+extend with #multiparameter-functions;
+
+fn first(a : Nat, b : Nat) -> Nat {
+        return a;
+}
+
+fn main (n : Nat, m : Nat) -> Nat {
+        return first(m, n);
+}

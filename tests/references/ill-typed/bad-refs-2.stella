@@ -1,0 +1,11 @@
+language core;
+
+extend with #references, #sequencing, #unit-type;
+
+fn inc(ref : &Nat) -> Unit {
+    return ref := succ(*ref)
+}
+
+fn main(input : Nat) -> Nat {
+    return inc(new(input)); *input
+}

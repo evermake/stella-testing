@@ -1,0 +1,10 @@
+language core;
+extend with #lists;
+
+fn proc(list : [Nat]) -> [Nat] {
+  return if List::isempty(list) then cons(succ(0), list) else [0, 0, succ(0), false, 0];
+}
+
+fn main(n : Nat) -> Nat {
+  return List::head(proc([succ(0), succ(succ(0)), succ(succ(succ(0)))]))
+}

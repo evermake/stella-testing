@@ -1,0 +1,9 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
+missing fields
+  z
+for an expected record of type
+  
+{
+  x : Nat, z : Nat
+}

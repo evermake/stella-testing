@@ -1,0 +1,13 @@
+language core;
+
+fn once(t : Nat) -> Nat {
+    return succ(t);
+}
+
+fn tripple(t : Nat) -> Nat {
+    return succ(succ(succ(t)));
+}
+
+fn main(f : Nat) -> Nat {
+  return (fn (p : Bool) { return if p then tripple(f) else once(f); })(true);
+}

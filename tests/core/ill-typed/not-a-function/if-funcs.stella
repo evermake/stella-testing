@@ -1,0 +1,18 @@
+language core;
+
+fn f(x : Nat) -> Nat {
+  return succ(x)
+}
+  
+fn g(k : fn(Nat) -> Nat) -> fn(Nat) -> Nat {
+  return fn(x : Nat) {
+    return k(k(x))
+  }
+}
+
+fn main(n : Nat) -> Nat {
+  return
+   (if Nat::iszero(n)
+      then f(n)
+      else g(f)(n))(n)
+}

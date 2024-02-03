@@ -1,0 +1,12 @@
+language core;
+
+fn returnTrue(b : Bool) -> Bool {
+  return true;
+}
+fn returnFalse(b : Bool) -> Bool {
+  return false;
+}
+
+fn main(b : Bool) -> Bool {
+  return returnTrue(b);
+}

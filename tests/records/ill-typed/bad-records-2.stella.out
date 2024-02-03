@@ -1,0 +1,11 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_FIELD_ACCESS]
+unexpected access to field m
+in a record of type
+  
+{
+  x : Nat, y : Nat, z : Nat
+}
+
+in the expression
+  p

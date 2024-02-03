@@ -1,0 +1,17 @@
+language core;
+
+fn some_func(f : Bool) -> (fn(Bool) -> Nat) {
+    return if f
+        then
+            fn (p : Bool) {
+                return succ(0);
+            }
+        else
+            fn (p : Bool) {
+                return true;
+            };
+}
+
+fn main(f : Nat) -> Nat {
+  return some_func(true)(true);
+}

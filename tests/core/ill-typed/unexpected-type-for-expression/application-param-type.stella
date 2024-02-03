@@ -1,0 +1,14 @@
+language core;
+
+// a constant function, specialized to Nat
+fn applTypeCheck(m : Nat) -> fn (Nat) -> fn(Nat) -> Nat {
+  return fn (k : Nat){
+        return fn (l : Nat){
+            return succ(l);
+        };
+  };
+}
+
+fn main(n : Nat) -> Nat {
+  return applTypeCheck(n)(true)(succ(0));
+}

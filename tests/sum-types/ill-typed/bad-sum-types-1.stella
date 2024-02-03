@@ -1,0 +1,16 @@
+language core;
+extend with #sum-types;
+
+fn g(x : Nat + (Bool + (fn(Nat) -> Nat))) -> Nat {
+  return match x {
+      inl(n) => succ(n)
+    | inr(bf) => match bf {
+          inr(b) => if b then succ(0) else 0
+        | inl(f) => f(f(succ(0)))
+      }
+  }
+}
+
+fn main(x : Nat) -> Nat {
+  return g(inr(inr(fn(n : Nat) { return g(inl(n)) })))
+}

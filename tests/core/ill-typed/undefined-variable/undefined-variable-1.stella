@@ -1,0 +1,5 @@
+language core;
+
+fn main(x : Nat) -> Nat {
+    return if y then 0 else succ(0);
+}

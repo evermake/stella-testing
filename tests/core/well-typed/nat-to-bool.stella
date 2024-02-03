@@ -1,0 +1,9 @@
+language core;
+
+fn Not(k : Bool) -> Bool {
+  return if k then false else true;
+}
+
+fn main(n : Bool) -> Bool {
+  return Not(n);
+}

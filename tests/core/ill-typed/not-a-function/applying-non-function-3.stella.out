@@ -1,0 +1,22 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_FUNCTION]
+expected a function type but got
+  Nat
+for the expression
+  (fn (x : Bool)
+{
+  return fn (y : Nat)
+  {
+    return succ (y)
+  }
+}
+) (false) (0)
+in the function call
+  (fn (x : Bool)
+{
+  return fn (y : Nat)
+  {
+    return succ (y)
+  }
+}
+) (false) (0) (n)

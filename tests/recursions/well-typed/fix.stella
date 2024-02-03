@@ -1,0 +1,10 @@
+language core;
+extend with #fixpoint-combinator;
+
+fn swap(p : fn(Nat) -> Nat) -> Nat {
+  return fix(p)
+}
+
+fn main(x : Nat) -> Nat {
+  return swap(fn(y : Nat) { return x })
+}

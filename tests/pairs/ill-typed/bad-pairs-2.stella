@@ -1,0 +1,12 @@
+language core;
+extend with
+  #pairs,
+  #tuples; // we enable tuples to allow syntax for p.3
+
+fn swap(p : {Nat, Nat}) -> {Nat, Nat} {
+  return {p.2, p.3}
+}
+
+fn main(x : Nat) -> Nat {
+  return swap(swap({0, x})).1
+}

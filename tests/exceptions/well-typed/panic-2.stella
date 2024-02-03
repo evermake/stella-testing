@@ -1,0 +1,16 @@
+language core;
+
+extend with
+  #comparison-operators,
+  #arithmetic-operators,
+  #panic;
+
+fn div(n : Nat) -> fn(Nat) -> Nat {
+  return fn(m : Nat) {
+    return if m == 0 then panic! else n / m
+  };
+}
+
+fn main(n : Nat) -> Nat {
+  return div(n)(0);
+}
