@@ -68,7 +68,7 @@ async function executeTypechecker(
   input: string,
 ): Promise<{ exitCode: number, stdout: string, stderr: string }> {
   return new Promise((resolve) => {
-    const child = exec(typecheckerPath, (err, stdout, stderr) => {
+    const child = exec(`"${typecheckerPath}"`, (err, stdout, stderr) => {
       resolve({ exitCode: err?.code ?? 0, stdout, stderr })
     })
 
