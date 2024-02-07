@@ -1,7 +1,8 @@
-TYPE ERROR:
-Type Error Tag: [ERROR_EMPTY_ARGUMENT_LIST_IN_LAMBDA]
-expected a non-empty list of arguments for the function
-fn ()
-{
-  return n
-}
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat
+but got
+  fn () -> Nat
+for expression
+  Nat::delay (n)

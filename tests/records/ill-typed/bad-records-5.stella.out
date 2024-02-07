@@ -1,4 +1,4 @@
-TYPE ERROR:
+An error occurred during typechecking!
 Type Error Tag: [ERROR_NOT_A_RECORD]
 expected a record type but got
   Nat

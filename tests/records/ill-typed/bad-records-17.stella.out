@@ -1,4 +1,4 @@
-TYPE ERROR:
+An error occurred during typechecking!
 Type Error Tag: [ERROR_UNEXPECTED_FIELD_ACCESS]
 unexpected access to field h
 in a record of type

@@ -1,4 +1,7 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
 expected type
   Nat
@@ -6,3 +9,16 @@ but got
   Bool
 for expression
   a
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  fn (Nat, Bool) -> Nat
+but got
+  fn (Nat, Bool) -> Bool
+for expression
+  fn (x : Nat, a : Bool)
+{
+  return a
+}

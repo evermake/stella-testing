@@ -1,4 +1,4 @@
-TYPE ERROR:
+An error occurred during typechecking!
 Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
 expected type
   

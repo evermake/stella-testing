@@ -1,4 +1,4 @@
-TYPE ERROR:
+An error occurred during typechecking!
 Type Error Tag: [ERROR_UNEXPECTED_PATTERN_FOR_TYPE]
 unexpected pattern
   <| unknown = x |>

@@ -1,8 +1,29 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_TUPLE]
 expected an expression of a non-tuple type
   Bool
 but got a tuple
+  
+{
+  true, false
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Bool
+but got
+  
+{
+  Bool, Bool
+}
+
+for expression
   
 {
   true, false

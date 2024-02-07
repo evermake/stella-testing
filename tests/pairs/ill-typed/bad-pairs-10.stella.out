@@ -1,4 +1,7 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
 expected type
   
@@ -26,3 +29,60 @@ but got
 
 for expression
   x
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  
+{
+  {
+    {
+      Nat, Nat
+    }
+    ,
+    {
+      Nat, Nat
+    }
+  }
+  ,
+  {
+    {
+      Nat, Bool
+    }
+    ,
+    {
+      Nat, Nat
+    }
+  }
+}
+
+but got
+  
+{
+  {
+    {
+      Nat, Nat
+    }
+    ,
+    {
+      Nat, Nat
+    }
+  }
+  ,
+  {
+    {
+      Nat, Nat
+    }
+    ,
+    {
+      Nat, Nat
+    }
+  }
+}
+
+for expression
+  
+{
+  x, x
+}

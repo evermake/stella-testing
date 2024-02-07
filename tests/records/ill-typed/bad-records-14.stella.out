@@ -1,4 +1,7 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_RECORD]
 expected an expression of a non-record type
   fn (Bool) -> Nat
@@ -10,4 +13,68 @@ but got a record
     return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
   }
   , y = succ (0)
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  fn (Bool) -> Nat
+but got
+  
+{
+  x : fn (Bool) -> Nat, y : Nat
+}
+
+for expression
+  
+{
+  x = fn (x : Bool)
+  {
+    return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+  }
+  , y = succ (0)
+}
+
+-----
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  
+{
+  x : fn (Bool) -> Nat, y : Nat
+}
+
+but got
+  
+{
+  x :
+  {
+    x : fn (Bool) -> Nat, y : Nat
+  }
+  , y :
+  {
+    x : fn (Bool) -> Nat, y : Nat
+  }
+}
+
+for expression
+  
+{
+  x =
+  {
+    x = fn (x : Bool)
+    {
+      return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+    }
+    , y = succ (0)
+  }
+  , y =
+  {
+    x = fn (x : Bool)
+    {
+      return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+    }
+    , y = succ (0)
+  }
 }

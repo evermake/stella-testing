@@ -34,22 +34,21 @@ export class StellaRunner {
     const dummyVarName = randomStr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 16)
 
     // Run Stella snippet with dummy variable as an input.
-    // In case of well-typed snippet, interpreter will try to run it and fail
-    // with "Variable not found" error.
-    const out = await this.run(snippet, dummyVarName)
-    const regexp = new RegExp(`TYPE ERROR(?:.|\\n)+ERROR_UNDEFINED_VARIABLE(?:.|\\n)+${dummyVarName}`)
+    // In case of well-typed snippet, interpreter will start typechecking the
+    // input and will try to run it and fail with "undefined variable" error.
+    const output = (await this.run(snippet, dummyVarName)).trim()
 
-    if (regexp.test(out)) {
+    if (output.includes("[ERROR_UNDEFINED_VARIABLE]") && output.includes(dummyVarName)) {
       return { ok: true }
     } else {
-      return { ok: false, detail: out.trim() }
+      return { ok: false, output }
     }
   }
 }
 
 export type TypecheckResult =
   | { ok: true }
-  | { ok: false, detail: string }
+  | { ok: false, output: string }
 
 async function deleteStellaHtmlFile() {
   fs.promises.rm(getStellaHtmlFilePath())

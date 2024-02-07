@@ -1,7 +1,0 @@
-TYPE ERROR:
-Type Error Tag: [ERROR_EMPTY_ARGUMENT_LIST_IN_LAMBDA]
-expected a non-empty list of arguments for the function
-fn ()
-{
-  return n
-}

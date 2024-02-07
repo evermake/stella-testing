@@ -1,4 +1,4 @@
-TYPE ERROR:
+An error occurred during typechecking!
 Type Error Tag: [ERROR_NOT_A_FUNCTION]
 expected a function type but got
   forall X . fn (X) -> X

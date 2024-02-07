@@ -1,7 +1,28 @@
-TYPE ERROR:
-Type Error Tag: [ERROR_EMPTY_ARGUMENT_LIST_IN_LAMBDA]
-expected a non-empty list of arguments for the function
-fn ()
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_NUMBER_OF_PARAMETERS_IN_LAMBDA]
+expected 1 parameters
+for a function type
+  fn (fn (Nat) -> Nat) -> fn (Nat) -> Nat
+but got 0 parameters
+in function
+  fn ()
+{
+  return n
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  fn (fn (Nat) -> Nat) -> fn (Nat) -> Nat
+but got
+  fn () -> fn (fn (Nat) -> Nat) -> fn (Nat) -> Nat
+for expression
+  fn ()
 {
   return n
 }

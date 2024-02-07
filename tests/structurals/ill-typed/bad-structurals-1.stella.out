@@ -1,4 +1,7 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
 expected type
   Bool
@@ -6,3 +9,16 @@ but got
   Nat
 for expression
   n
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Bool
+but got
+  Nat
+for expression
+  match input
+{
+  inl (n) => n | inr (inl (b)) => if b then succ (0) else 0 | inr (inr (f)) => f (succ (0))
+}
