@@ -26,6 +26,20 @@ function handleNameHeaderClick() {
   }
 }
 
+function comparePassed(passedA: boolean | null, passedB: boolean | null): 1 | 0 | -1 {
+  if (passedA === passedB) {
+    return 0
+  }
+
+  if (typeof passedA === 'boolean' && typeof passedB === 'boolean') {
+    return passedA
+      ? (passedB ? 0 : 1)
+      : (passedB ? -1 : 0)
+  }
+
+  return passedA === null ? 1 : -1
+}
+
 const sortedTestcases = computed(() => {
   const sorted = props.report.testcases.toSorted((a, b) => {
     if (sorting.value === 'name-asc') {
@@ -33,13 +47,9 @@ const sortedTestcases = computed(() => {
     } else if (sorting.value === 'name-desc') {
       return b.name.localeCompare(a.name)
     } else if (sorting.value === 'result-asc') {
-      const passedA = a.passed === true ? 1 : a.passed === false ? 0 : -1
-      const passedB = b.passed === true ? 1 : a.passed === false ? 0 : -1
-      return passedA - passedB
+      return comparePassed(a.passed, b.passed)
     } else if (sorting.value === 'result-desc') {
-      const passedA = a.passed === true ? 1 : a.passed === false ? 0 : -1
-      const passedB = b.passed === true ? 1 : a.passed === false ? 0 : -1
-      return passedB - passedA
+      return comparePassed(b.passed, a.passed)
     }
     return 0
   })
