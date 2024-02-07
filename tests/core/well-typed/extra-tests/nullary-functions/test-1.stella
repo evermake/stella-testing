@@ -3,7 +3,7 @@ language core;
 extend with #nullary-functions;
 
 fn apply(f : fn(Nat) -> Nat) -> (fn(Nat) -> Nat) {
-  return f;
+  return f
 }
 
 fn const_apply() -> fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat {
@@ -11,8 +11,8 @@ fn const_apply() -> fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat {
 }
 
 fn increase (n : Nat) -> Nat {
-  return succ(n);
+  return succ(n)
 }
 fn main(n : Nat) -> Nat {
-  return const_apply()(increase)(n);
+  return const_apply()(increase)(n)
 }

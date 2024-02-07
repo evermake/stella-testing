@@ -3,5 +3,5 @@ language core;
 extend with #natural-literals;
 
 fn main(n : Nat) -> Nat {
-  return succ(10);
+  return succ(10)
 }

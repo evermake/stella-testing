@@ -1,0 +1,12 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_RECORD]
+expected an expression of a non-record type
+  Nat
+but got a record
+  
+{
+  f = 0, g = fn (x : Bool)
+  {
+    return if x then succ (0) else 0
+  }
+}

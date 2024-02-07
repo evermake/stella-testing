@@ -1,9 +1,9 @@
 language core;
 
 fn chck(b : Bool) -> Bool {
-  return (if true then false else true);
+  return (if true then false else true)
 }
 
 fn main(b : Bool) -> Bool {
-  return chck(b);
+  return chck(b)
 }

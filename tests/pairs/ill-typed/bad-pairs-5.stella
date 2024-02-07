@@ -1,0 +1,17 @@
+language core;
+
+extend with #pairs;
+
+fn swap(p : {Nat, Nat}) -> {Nat, Nat} {
+  return {p.2, p.1}
+}
+
+fn main(x : Nat) -> Nat {
+  return
+    (if false
+      then
+        { if true then swap({0, 0}).2 else swap({0, 0}).1
+        , if false then swap({0, 0}).1 else swap({0, 0}).2 }
+      else
+        swap({ 0, 0 })).1.2
+}

@@ -2,10 +2,10 @@ language core;
 
 fn badAbstraction(n : Nat) -> fn(Nat) -> Nat {
     return fn(a : Nat) {
-        return Nat::iszero(succ(a));
-    };
+        return Nat::iszero(succ(a))
+    }
 }
 
 fn main(n : Nat) -> Nat {
-  return badAbstraction(n);
+  return badAbstraction(n)
 }

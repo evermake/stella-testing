@@ -15,5 +15,5 @@ fn f(g : fn(Bool) -> Nat, n : Nat) -> Nat {
 }
 
 fn main(n : Nat) -> Nat {
-  return f(fn (x : Bool) { return if x then n else succ(n); }, 0, true)
+  return f(fn (x : Bool) { return if x then n else succ(n) }, 0, true)
 }

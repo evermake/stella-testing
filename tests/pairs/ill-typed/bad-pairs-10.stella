@@ -1,0 +1,12 @@
+language core;
+
+extend with #pairs;
+
+fn f1(x : Nat) -> { Nat, Nat } { return { x, x } }
+fn f2(x : { Nat, Nat }) -> { { Nat, Nat }, { Nat, Nat } } { return { x, x } }
+fn f3(x : { { Nat, Nat }, { Nat, Nat } }) -> { { { Nat, Nat }, { Nat, Nat } }, { { Nat, Bool }, { Nat, Nat } } } { return { x, x } }
+
+fn main(x : Nat) -> Nat {
+  return
+    f3(f2(f1(0))).2.1.2
+}

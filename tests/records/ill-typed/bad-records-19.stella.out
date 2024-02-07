@@ -1,0 +1,25 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_FIELD_ACCESS]
+unexpected access to field y
+in a record of type
+  
+{
+  x : fn (Nat) -> Nat, a : Nat
+}
+
+in the expression
+  (fn (x : fn (Nat) -> Nat)
+{
+  return fn (y : Nat)
+  {
+    return
+    {
+      x = x, a = if Nat::iszero (x (0)) then 0 else succ (x (0))
+    }
+  }
+}
+) (fn (x : Nat)
+{
+  return x
+}
+) (if true then succ (0) else 0)

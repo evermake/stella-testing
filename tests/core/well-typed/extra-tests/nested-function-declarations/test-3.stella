@@ -8,28 +8,28 @@ fn factorial(n : Nat) -> Nat {
   fn Nat::mul(n : Nat) -> (fn(Nat) -> Nat) {
     // a constant function, specialized to Nat
     fn Nat2Nat::const(n : fn(Nat) -> Nat) -> (fn(Nat) -> (fn(Nat) -> Nat)) {
-      return fn(x : Nat) { return n; };
+      return fn(x : Nat) { return n }
     }
 
     // addition of natural numbers
     fn Nat::add(n : Nat) -> (fn(Nat) -> Nat) {
       return fn(m : Nat) {
         return Nat::rec(n, m, fn(n : Nat) {
-          return fn(n : Nat) { return succ(n); }; });
-      };
+          return fn(n : Nat) { return succ(n) } })
+      }
     }
 
     return fn(m : Nat) {
-      return Nat::rec(n, 0, Nat2Nat::const(Nat::add(m)));
-    };
+      return Nat::rec(n, 0, Nat2Nat::const(Nat::add(m)))
+    }
   }
 
   return Nat::rec(n, succ(0), fn(n : Nat) {
     return fn(r : Nat) {
-    return Nat::mul(r)(succ(n));
-  }; });
+    return Nat::mul(r)(succ(n))
+  } })
 }
 
 fn main(n : Nat) -> Nat {
-  return factorial(n);
+  return factorial(n)
 }

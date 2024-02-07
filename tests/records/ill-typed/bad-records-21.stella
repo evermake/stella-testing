@@ -1,0 +1,16 @@
+language core;
+
+extend with #records;
+
+fn main(x : Nat) -> Nat {
+  return
+    (
+      fn (x : fn(Nat) -> Nat) {
+        return fn (y : Nat) {
+          return { x = x, y = if Nat::iszero(x(0)) then 0 else succ(x(0)) }
+        }
+      }
+    )
+    (fn (x : Nat) { return x})
+    (if true then succ(0) else 0).y(0)
+}

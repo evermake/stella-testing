@@ -1,0 +1,36 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_FUNCTION]
+expected a function type but got
+  Nat
+for the expression
+  (fn (x : fn (Nat) -> Nat)
+{
+  return fn (y : Nat)
+  {
+    return
+    {
+      x = x, y = if Nat::iszero (x (0)) then 0 else succ (x (0))
+    }
+  }
+}
+) (fn (x : Nat)
+{
+  return x
+}
+) (if true then succ (0) else 0) . y
+in the function call
+  (fn (x : fn (Nat) -> Nat)
+{
+  return fn (y : Nat)
+  {
+    return
+    {
+      x = x, y = if Nat::iszero (x (0)) then 0 else succ (x (0))
+    }
+  }
+}
+) (fn (x : Nat)
+{
+  return x
+}
+) (if true then succ (0) else 0) . y (0)

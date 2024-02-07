@@ -1,8 +1,8 @@
 language core;
 
 fn returnTrue(b : Bool) -> Bool {
-  return true;
+  return true
 }
 fn returnFalse(b : Bool) -> Bool {
-  return false;
+  return false
 }

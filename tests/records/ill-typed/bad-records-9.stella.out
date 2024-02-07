@@ -1,0 +1,22 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_RECORD]
+expected a record type but got
+  fn (Bool) -> Nat
+for the expression
+  
+{
+  f = 0, g = fn (x : Bool)
+  {
+    return if x then succ (0) else 0
+  }
+}
+. g
+in the expression
+  
+{
+  f = 0, g = fn (x : Bool)
+  {
+    return if x then succ (0) else 0
+  }
+}
+. g . f

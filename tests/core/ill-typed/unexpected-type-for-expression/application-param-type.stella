@@ -4,11 +4,11 @@ language core;
 fn applTypeCheck(m : Nat) -> fn (Nat) -> fn(Nat) -> Nat {
   return fn (k : Nat){
         return fn (l : Nat){
-            return succ(l);
-        };
-  };
+            return succ(l)
+        }
+  }
 }
 
 fn main(n : Nat) -> Nat {
-  return applTypeCheck(n)(true)(succ(0));
+  return applTypeCheck(n)(true)(succ(0))
 }

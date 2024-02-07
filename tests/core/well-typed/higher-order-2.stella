@@ -2,5 +2,5 @@ language core;
 
 fn main(n : Nat) -> Nat {
   return succ(
-    (fn(y : Nat){return y;})(n));
+    (fn(y : Nat){return y})(n))
 }

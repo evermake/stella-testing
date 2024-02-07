@@ -1,5 +1,5 @@
 language core;
 
 fn main(x : Bool) -> Nat {
-    return succ(succ(Nat::iszero(x)));
+    return succ(succ(Nat::iszero(x)))
 }

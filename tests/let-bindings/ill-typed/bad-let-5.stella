@@ -1,0 +1,15 @@
+language core;
+
+extend with #let-bindings;
+
+fn main(m : Nat) -> Bool {
+  return
+		let n = fn(b : Bool) { return if b then false else true } in
+		let c = fn(f : fn(Bool) -> Bool) { return fn(g : fn(Bool) -> Bool) { return fn(b : Bool) { return f(g(b)) } } } in
+		let x = false in
+		let y = 0 in
+		let z = if Nat::iszero(y) then x else n(x) in
+  	let x = if n(n(z)) then n else c(c(n)(n))(n) in
+		let y = if z then fn(z : Bool) { return Nat::iszero(y) } else n in
+		c(y(Nat::iszero(m))(x))
+}

@@ -1,0 +1,17 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_FIELD_ACCESS]
+unexpected access to field h
+in a record of type
+  
+{
+  f : Nat, g : fn (Bool) -> Nat
+}
+
+in the expression
+  
+{
+  f = 0, g = fn (x : Bool)
+  {
+    return if x then succ (0) else 0
+  }
+}

@@ -1,0 +1,20 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_FUNCTION]
+expected a function type but got
+  
+{
+  Nat, Nat
+}
+
+for the expression
+  
+{
+  0, 0
+}
+
+in the function call
+  
+{
+  0, 0
+}
+(0)

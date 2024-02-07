@@ -1,0 +1,17 @@
+language core;
+extend with #unit-type;
+
+fn Unit::seq(_ : Unit) -> fn(Unit) -> Unit {
+  return fn(x : Unit) { return x }
+}
+
+fn Bool::seq(_ : Unit) -> fn(Bool) -> Bool {
+  return fn(x : Bool) { return if x then false else true }
+}
+
+fn main(x : Nat) -> Nat {
+	return
+    if Bool::seq(Unit::seq(unit)(unit))(Unit::seq(Unit::seq(unit)(unit))(Nat::iszero(x)))
+    then x
+    else succ(x)
+}

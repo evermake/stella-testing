@@ -1,0 +1,57 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_TUPLE]
+expected an expression of tuple type
+but got expression
+  (if false then
+{
+  if true then swap (
+  {
+    0, 0
+  }
+  ) . 2 else swap (
+  {
+    0, 0
+  }
+  ) . 1, if false then swap (
+  {
+    0, 0
+  }
+  ) . 1 else swap (
+  {
+    0, 0
+  }
+  ) . 2
+}
+else swap (
+{
+  0, 0
+}
+)) . 1
+of type
+  Nat
+in expression
+  (if false then
+{
+  if true then swap (
+  {
+    0, 0
+  }
+  ) . 2 else swap (
+  {
+    0, 0
+  }
+  ) . 1, if false then swap (
+  {
+    0, 0
+  }
+  ) . 1 else swap (
+  {
+    0, 0
+  }
+  ) . 2
+}
+else swap (
+{
+  0, 0
+}
+)) . 1 . 2

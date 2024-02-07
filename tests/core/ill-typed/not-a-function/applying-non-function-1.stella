@@ -1,5 +1,5 @@
 language core;
 
 fn main(f : Nat) -> Nat {
-  return f(f);
+  return f(f)
 }

@@ -16,7 +16,7 @@ fn Nat_to_Nat_to_Nat_to_Nat::delay(n : fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat)
 }
 
 fn apply(f : fn(Nat) -> Nat) -> (fn(Nat) -> Nat) {
-  return f;
+  return f
 }
 
 fn const_apply() -> fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat {
@@ -24,8 +24,8 @@ fn const_apply() -> fn(fn(Nat) -> Nat) -> fn(Nat) -> Nat {
 }
 
 fn increase (n : Nat) -> Nat {
-  return succ(n);
+  return succ(n)
 }
 fn main(n : Nat) -> Nat {
-  return const_apply()(Nat_to_Nat::delay(increase)())(Nat_to_Nat::delay(n)());
+  return const_apply()(Nat_to_Nat::delay(increase)())(Nat_to_Nat::delay(n)())
 }

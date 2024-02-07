@@ -1,0 +1,37 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat
+but got
+  
+{
+  Nat, Bool
+}
+
+for expression
+  (fn (x : Nat)
+{
+  return
+  {
+    {
+      {
+        x, x
+      }
+      ,
+      {
+        x, x
+      }
+    }
+    ,
+    {
+      {
+        x, Nat::iszero (x)
+      }
+      ,
+      {
+        x, x
+      }
+    }
+  }
+}
+) (0) . 2 . 1

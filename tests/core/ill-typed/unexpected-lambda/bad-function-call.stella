@@ -5,12 +5,16 @@ fn Nat::add(n : Nat) -> Nat {
   return fn(m : Nat) {
     return Nat::rec(n, m, fn(i : Nat) {
       return fn(r : Nat) {
-        return succ( r ); // r := r + 1
-      };
-    });
-  };
+        return succ( r ) // r := r + 1
+      }
+    })
+  }
 }
 
 fn badCall(n : Nat) -> (fn(Nat) -> Nat){
-    return add(n);
+    return add(n)
+}
+
+fn main(n : Nat) -> Nat {
+  return 0
 }

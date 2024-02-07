@@ -1,0 +1,9 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TUPLE]
+expected an expression of a non-tuple type
+  Bool
+but got a tuple
+  
+{
+  true, false
+}

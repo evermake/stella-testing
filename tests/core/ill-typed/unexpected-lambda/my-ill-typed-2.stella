@@ -8,6 +8,6 @@ fn main(f : Nat) -> Nat {
           then succ(0)
           else
             (fn (k : Bool)
-            		{ return if k then succ(f) else succ(succ(f)); });
-    })(true);
+            		{ return if k then succ(f) else succ(succ(f)) })
+    })(true)
 }

@@ -1,0 +1,31 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  
+{
+  x : fn (Bool) -> Nat, y : Nat
+}
+
+but got
+  fn (Bool) -> Nat
+for expression
+  
+{
+  x =
+  {
+    x = fn (x : Bool)
+    {
+      return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+    }
+    , y = succ (0)
+  }
+  , y =
+  {
+    x = fn (x : Bool)
+    {
+      return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+    }
+    , y = succ (0)
+  }
+}
+. x . x

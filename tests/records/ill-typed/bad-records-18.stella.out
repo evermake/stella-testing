@@ -1,0 +1,71 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_FIELD_ACCESS]
+unexpected access to field a
+in a record of type
+  
+{
+  x :
+  {
+    x : Bool, y : Nat
+  }
+  , y :
+  {
+    x : Bool, y : Nat
+  }
+}
+
+in the expression
+  
+{
+  x =
+  {
+    x =
+    {
+      x =
+      {
+        x = false, y = 0
+      }
+      , a =
+      {
+        x = 0, y = 0, z = true
+      }
+    }
+    , y =
+    {
+      x =
+      {
+        x = false, y = 0
+      }
+      , y =
+      {
+        x = false, y = 0
+      }
+    }
+  }
+  , y =
+  {
+    a =
+    {
+      x =
+      {
+        x = 0, y = 0
+      }
+      , y =
+      {
+        x = 0, y = 0
+      }
+    }
+    , y =
+    {
+      x =
+      {
+        a = 0, y = 0
+      }
+      , y =
+      {
+        x = false, y = 0
+      }
+    }
+  }
+}
+. x . y

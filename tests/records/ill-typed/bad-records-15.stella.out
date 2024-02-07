@@ -1,0 +1,46 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_RECORD]
+expected a record type but got
+  Nat
+for the expression
+  
+{
+  x =
+  {
+    x = fn (x : Bool)
+    {
+      return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+    }
+    , y = succ (0)
+  }
+  , y =
+  {
+    x = fn (x : Bool)
+    {
+      return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+    }
+    , y = succ (0)
+  }
+}
+. x . y
+in the expression
+  
+{
+  x =
+  {
+    x = fn (x : Bool)
+    {
+      return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+    }
+    , y = succ (0)
+  }
+  , y =
+  {
+    x = fn (x : Bool)
+    {
+      return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+    }
+    , y = succ (0)
+  }
+}
+. x . y . x

@@ -1,0 +1,65 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat
+but got
+  
+{
+  x : Bool, y : Nat
+}
+
+for expression
+  
+{
+  x =
+  {
+    x =
+    {
+      x =
+      {
+        x = false, y = 0
+      }
+      , a =
+      {
+        x = 0, y = 0, z = true
+      }
+    }
+    , y =
+    {
+      x =
+      {
+        x = false, y = 0
+      }
+      , y =
+      {
+        x = false, y = 0
+      }
+    }
+  }
+  , y =
+  {
+    a =
+    {
+      x =
+      {
+        x = 0, y = 0
+      }
+      , y =
+      {
+        x = 0, y = 0
+      }
+    }
+    , y =
+    {
+      x =
+      {
+        a = 0, y = 0
+      }
+      , y =
+      {
+        x = false, y = 0
+      }
+    }
+  }
+}
+. x . y . x

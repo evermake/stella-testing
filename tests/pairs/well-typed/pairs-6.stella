@@ -1,0 +1,8 @@
+language core;
+
+extend with #pairs;
+
+fn main(x : Nat) -> Nat {
+  return
+    { 0, fn(x : Bool) { return if x then succ(0) else 0 }}.2(false)
+}

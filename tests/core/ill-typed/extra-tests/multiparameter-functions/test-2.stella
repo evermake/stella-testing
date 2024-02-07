@@ -7,5 +7,5 @@ fn mk_const(a : Nat) -> fn(Nat, Nat) -> Nat {
 }
 
 fn main (n : Nat) -> Nat {
-  return mk_const(n)(0, 0);
+  return mk_const(n)(0, 0)
 }

@@ -1,0 +1,8 @@
+language core;
+
+extend with #records;
+
+fn main(x : Nat) -> Nat {
+  return
+    { f = 0, g = fn(x : Bool) { return if x then succ(0) else 0 }}.g.f(false)
+}

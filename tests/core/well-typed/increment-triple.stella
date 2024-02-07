@@ -1,9 +1,9 @@
 language core;
 
 fn increment_triple(n : Nat) -> Nat {
-  return succ(succ(succ(n)));
+  return succ(succ(succ(n)))
 }
 
 fn main(n : Nat) -> Nat {
-  return increment_triple(n);
+  return increment_triple(n)
 }

@@ -1,0 +1,23 @@
+language core;
+
+extend with #records;
+
+fn mk(k : fn(Nat) -> Bool) -> { x : fn(Bool) -> Nat, y : Nat } {
+  return
+    { x = { x = fn(x : Bool) {
+                  return if k(succ(0))
+                    then if x then 0 else succ(0)
+                    else succ(succ(0))
+                }
+          , y = succ(0) }
+    , y = { x = fn(x : Bool) {
+                  return if k(succ(0))
+                    then if x then 0 else succ(0)
+                    else succ(succ(0))
+                }
+          , y = succ(0) } }.x.x
+}
+
+fn main(x : Nat) -> Nat {
+  return mk(fn(x : Nat) { return Nat::iszero(x)}).x(false)
+}

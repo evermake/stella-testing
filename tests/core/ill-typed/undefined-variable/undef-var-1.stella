@@ -7,5 +7,5 @@ fn twice(f : fn(Nat) -> Nat) -> fn(Nat) -> Nat {
 }
 
 fn main(n : Nat) -> Nat {
-  return twice( fn(x : Nat){ return n; } )(x);
+  return twice( fn(x : Nat){ return n } )(x)
 }

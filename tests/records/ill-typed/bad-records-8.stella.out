@@ -1,0 +1,22 @@
+TYPE ERROR:
+Type Error Tag: [ERROR_NOT_A_FUNCTION]
+expected a function type but got
+  Nat
+for the expression
+  
+{
+  f = 0, g = fn (x : Bool)
+  {
+    return if x then succ (0) else 0
+  }
+}
+. f
+in the function call
+  
+{
+  f = 0, g = fn (x : Bool)
+  {
+    return if x then succ (0) else 0
+  }
+}
+. f (false)
