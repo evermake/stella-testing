@@ -1,0 +1,119 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Stella",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#identifiers"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "name": "comment.line.double-slash.stella",
+      "match": "\\/\\/[^\\n]*$"
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.stella",
+          "match": "\\b(if|then|else|fn|return|let|letrec|in|cast\\s+as|as|match|try|catch|with)\\b|\\bpanic!(?!:|\\w|-|\\?|!)"
+        },
+        {
+          "name": "entity.name.tag",
+          "match": "\\b([_a-zA-Z][_a-zA-Z0-9]*)\\b(?=\\s+fn\\s+\\b([_a-zA-Z][_a-zA-Z0-9:\\-!?]*)\\b)",
+          "comment": "Function annotation"
+        },
+        {
+          "name": "keyword.operator.stella",
+          "match": "\\b(and|or)\\b|->|=>|-|\\+|<|>|>=|<=|==|:=|\\*"
+        },
+        {
+          "name": "keyword.other.stella",
+          "match": "\\b(extend\\s+with|language\\s+core|exception\\s+type|exception\\s+variant|type|throws)\\b"
+        },
+        {
+          "name": "storage.type.stella",
+          "comment": "Built-in types",
+          "match": "\\b(Nat|Bool|Unit|Top|Bot)\\b(?!:|-|\\?|!)"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "entity.name.tag.stella",
+          "comment": "Extension name",
+          "match": "#[\\w\\-]+\\b"
+        },
+        {
+          "name": "variable.parameter.stella",
+          "comment": "Parameter declaration",
+          "match": "\\b([_a-zA-Z][_a-zA-Z0-9:\\-!?]*)(?=\\s+:)"
+        },
+        {
+          "name": "entity.name.function.stella",
+          "comment": "Function definition",
+          "match": "(?<=fn\\s+)\\b([_a-zA-Z][_a-zA-Z0-9:\\-!?]*)(?=\\s*\\()"
+        },
+        {
+          "name": "entity.name.function.stella",
+          "comment": "Function application",
+          "match": "\\b([_a-zA-Z][_a-zA-Z0-9:\\-!?]*)(?=\\s*\\()"
+        },
+        {
+          "name": "entity.name.type.stella",
+          "comment": "Type alias",
+          "match": "\\b(?<=type\\s+)\\b([_a-zA-Z][_a-zA-Z0-9:\\-!?]*)"
+        },
+        {
+          "name": "variable.name.stella",
+          "match": "\\b([_a-zA-Z][_a-zA-Z0-9:\\-!?]*)"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.numeric.stella",
+          "match": "<0x(\\d|[a-f])+>"
+        },
+        {
+          "name": "constant.numeric.stella",
+          "match": "\\d+"
+        },
+        {
+          "name": "constant.language.stella",
+          "match": "\\b(true|false|unit)\\b"
+        },
+        {
+          "name": "support.function.stella",
+          "comment": "Built-in functions",
+          "match": "\\b(succ|not|fix|unfold|fold|head|tail|cons|inl|inr|Nat::rec|Nat::pred|Nat::iszero|new|throw)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.stella",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.stella",
+          "match": "\\\\."
+        }
+      ]
+    }
+  },
+  "scopeName": "source.stella"
+}

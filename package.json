@@ -14,5 +14,8 @@
     "commander": "^11.1.0",
     "glob": "^10.3.10",
     "playwright": "^1.41.2"
-  }
+  },
+  "workspaces": [
+    "report-viewer"
+  ]
 }
