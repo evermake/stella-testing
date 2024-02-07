@@ -8,6 +8,15 @@ on:
     paths:
       - 'report-viewer/**/*'
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
 jobs:
   build:
     name: Build
@@ -33,3 +42,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './report-viewer/dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
