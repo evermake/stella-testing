@@ -6,6 +6,63 @@ import { glob } from "glob"
 import cliProgress from "cli-progress"
 import type { Report } from "./types"
 
+async function fileExists(path: string) {
+  try {
+    await fs.promises.access(path, fs.constants.F_OK)
+    return true
+  } catch (_) {
+    return false
+  }
+}
+
+
+const ERROR_TAG_REGEX = /\[(ERROR_(\w+))\]/i
+
+function parseExpectedResult(expected: string): (
+  | { ok: true }
+  | { ok: null }
+  | { ok: false; errorTag: string }
+) {
+  if (expected.trim() === "") {
+    return { ok: true }
+  }
+
+  const typeErrorMatch = expected.match(ERROR_TAG_REGEX)
+
+  if (typeErrorMatch) {
+    return {
+      ok: false,
+      errorTag: typeErrorMatch[1],
+    }
+  }
+
+  return { ok: null }
+}
+
+function getTestcaseConclusion(testcase: {
+  expected: string,
+  actualStdout: string,
+  actualStderr: string,
+  exitCode: number,
+}): { passed: boolean | null } {
+  const expectedResult = parseExpectedResult(testcase.expected)
+  if (expectedResult.ok) {
+    return { passed: testcase.exitCode === 0 }
+  } else if (expectedResult.ok === null) {
+    return { passed: null }
+  } else {
+    if (testcase.exitCode === 0) {
+      return { passed: false }
+    }
+
+    const resultStr = `${testcase.actualStdout}\n${testcase.actualStderr}`
+
+    return {
+      passed: resultStr.includes(expectedResult.errorTag)
+    }
+  }
+}
+
 async function executeTypechecker(
   typecheckerPath: string,
   input: string,
@@ -61,10 +118,17 @@ async function main() {
     const snippet = (await fs.promises.readFile(srcFilePath)).toString()
     const expected = (await fs.promises.readFile(outFilePath)).toString()
     const result = await executeTypechecker(typecheckerPath, snippet)
+    const conclusion = getTestcaseConclusion({
+      expected,
+      exitCode: result.exitCode,
+      actualStdout: result.stdout,
+      actualStderr: result.stderr,
+    })
 
     const pathRelativeToTests = path.relative(testsDir, srcFilePath)
 
     report.testcases[pathRelativeToTests] = {
+      passed: conclusion.passed,
       snippet,
       expected,
       exitCode: result.exitCode,
@@ -81,12 +145,3 @@ async function main() {
 }
 
 main()
-
-async function fileExists(path: string) {
-  try {
-    await fs.promises.access(path, fs.constants.F_OK)
-    return true
-  } catch (_) {
-    return false
-  }
-}

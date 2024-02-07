@@ -4,57 +4,6 @@ import { program } from "commander"
 import chalk from "chalk"
 import type { Report } from "./types"
 
-export type TestcaseResult = {
-  passed: boolean | null
-}
-
-export type ExpectedResult = {
-  ok: true
-} | {
-  ok: false
-  errorTag: string
-} | {
-  ok: null
-}
-
-const ERROR_TAG_REGEX = /\[(ERROR_(\w+))\]/i
-
-function parseExpectedResult(expected: string): ExpectedResult {
-  if (expected.trim() === "") {
-    return { ok: true }
-  }
-
-  const typeErrorMatch = expected.match(ERROR_TAG_REGEX)
-
-  if (typeErrorMatch) {
-    return {
-      ok: false,
-      errorTag: typeErrorMatch[1],
-    }
-  }
-
-  return { ok: null }
-}
-
-function getTestcaseResult(testcase: Report["testcases"][string]): TestcaseResult {
-  const expectedResult = parseExpectedResult(testcase.expected)
-  if (expectedResult.ok) {
-    return { passed: testcase.exitCode === 0 }
-  } else if (expectedResult.ok === null) {
-    return { passed: null }
-  } else {
-    if (testcase.exitCode === 0) {
-      return { passed: false }
-    }
-
-    const resultStr = `${testcase.actualStdout}\n${testcase.actualStderr}`
-
-    return {
-      passed: resultStr.includes(expectedResult.errorTag)
-    }
-  }
-}
-
 async function main() {
   program
     .name('print-report')
@@ -71,11 +20,10 @@ async function main() {
   Object
     .entries(report.testcases)
     .sort(([a], [b]) => a.localeCompare(b)) // Sort by file name
-    .forEach(([name, testcase]) => {
-      const result = getTestcaseResult(testcase)
-      console.log(chalk.italic(name) + ":" + (result.passed ? chalk.green(" ✔") : chalk.red(" ✘")))
+    .forEach(([name, tc]) => {
+      console.log(chalk.italic(name) + ":" + (tc.passed ? chalk.green(" ✔") : chalk.red(" ✘")))
       total += 1
-      passed += result.passed ? 1 : 0
+      passed += tc.passed ? 1 : 0
     })
   console.log('=================================')
   console.log(`Total: ${passed}/${total}`)
