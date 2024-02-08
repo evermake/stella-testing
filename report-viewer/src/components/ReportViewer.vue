@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { Report } from '../types';
+import { Report, TestcaseConclusion } from '../types';
 import ReportTestcase from './ReportTestcase.vue';
 
 const props = defineProps<{
@@ -26,18 +26,25 @@ function handleNameHeaderClick() {
   }
 }
 
-function comparePassed(passedA: boolean | null, passedB: boolean | null): 1 | 0 | -1 {
-  if (passedA === passedB) {
-    return 0
+function compareTestcaseConclusion(
+  conclusionA: TestcaseConclusion,
+  conclusionB: TestcaseConclusion,
+): number {
+  const num = (c: TestcaseConclusion): number => {
+    switch (c) {
+      case 'incorrect':
+        return 0
+      case 'correct':
+        return 4
+      case 'partially-correct':
+        return 2
+      case 'unknown':
+        return 1
+    }
   }
-
-  if (typeof passedA === 'boolean' && typeof passedB === 'boolean') {
-    return passedA
-      ? (passedB ? 0 : 1)
-      : (passedB ? -1 : 0)
-  }
-
-  return passedA === null ? 1 : -1
+  const numA = num(conclusionA)
+  const numB = num(conclusionB)
+  return numA - numB
 }
 
 const sortedTestcases = computed(() => {
@@ -47,9 +54,9 @@ const sortedTestcases = computed(() => {
     } else if (sorting.value === 'name-desc') {
       return b.name.localeCompare(a.name)
     } else if (sorting.value === 'result-asc') {
-      return comparePassed(a.passed, b.passed)
+      return compareTestcaseConclusion(a.conclusion, b.conclusion)
     } else if (sorting.value === 'result-desc') {
-      return comparePassed(b.passed, a.passed)
+      return compareTestcaseConclusion(b.conclusion, a.conclusion)
     }
     return 0
   })

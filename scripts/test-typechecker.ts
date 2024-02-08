@@ -4,7 +4,7 @@ import { exec } from "node:child_process"
 import { program } from "commander"
 import { glob } from "glob"
 import cliProgress from "cli-progress"
-import type { Report } from "./types"
+import type { Report, TestcaseConclusion } from "./types"
 
 async function fileExists(path: string) {
   try {
@@ -15,51 +15,80 @@ async function fileExists(path: string) {
   }
 }
 
-
-const ERROR_TAG_REGEX = /\[(ERROR_(\w+))\]/i
-
-function parseExpectedResult(expected: string): (
-  | { ok: true }
-  | { ok: null }
-  | { ok: false; errorTag: string }
-) {
-  if (expected.trim() === "") {
-    return { ok: true }
+export type ExpectedTypecheckResult =
+  | { type: 'unknown' }
+  | { type: 'ok' }
+  | {
+    type: 'type-error'
+    primaryTags: string[]
+    alternativeTags: string[]
   }
 
-  const typeErrorMatch = expected.match(ERROR_TAG_REGEX)
+const ERROR_TAG_REGEX = /\[(ERROR_\w+)\]/g
+const TYPE_ERROR_OUTPUT_WITH_PRIMARY_AND_ALTERNATIVE_ERRORS_REGEX = /^An error occurred during typechecking!\s+===================\s*Primary type error:\s*===================([\S\s]+)========================\s*Alternative type errors:\s*========================([\S\s]+)$/
 
-  if (typeErrorMatch) {
+function parseExpectedTypecheckResultFromOutput(out: string): ExpectedTypecheckResult {
+  out = out.trim()
+
+  // Original typechecker returned nothing, therefore no type errors.
+  if (out === "") {
+    return { type: 'ok' }
+  }
+
+  if (!out.startsWith("An error occurred during typechecking")) {
+    return { type: 'unknown' }
+  }
+
+  const primaryAndAlternativeErrorTagsMatch = TYPE_ERROR_OUTPUT_WITH_PRIMARY_AND_ALTERNATIVE_ERRORS_REGEX.exec(out)
+  if (primaryAndAlternativeErrorTagsMatch) {
+    const primaryTags = Array.from(primaryAndAlternativeErrorTagsMatch[1].matchAll(ERROR_TAG_REGEX), m => m[1])
+    const alternativeTags = Array.from(primaryAndAlternativeErrorTagsMatch[2].matchAll(ERROR_TAG_REGEX), m => m[1])
+
+    if (primaryTags.length === 0 || alternativeTags.length === 0) {
+      return { type: 'unknown' }
+    }
+
     return {
-      ok: false,
-      errorTag: typeErrorMatch[1],
+      type: 'type-error',
+      primaryTags,
+      alternativeTags,
     }
   }
 
-  return { ok: null }
+  const errorTags = Array.from(out.matchAll(ERROR_TAG_REGEX), m => m[1])
+
+  if (errorTags.length !== 1) {
+    console.log("not 1 tag found");
+    
+    return { type: 'unknown' }
+  }
+
+  return {
+    type: 'type-error',
+    primaryTags: errorTags,
+    alternativeTags: [],
+  }
 }
 
-function getTestcaseConclusion(testcase: {
-  expected: string,
-  actualStdout: string,
-  actualStderr: string,
-  exitCode: number,
-}): { passed: boolean | null } {
-  const expectedResult = parseExpectedResult(testcase.expected)
-  if (expectedResult.ok) {
-    return { passed: testcase.exitCode === 0 }
-  } else if (expectedResult.ok === null) {
-    return { passed: null }
-  } else {
-    if (testcase.exitCode === 0) {
-      return { passed: false }
-    }
-
-    const resultStr = `${testcase.actualStdout}\n${testcase.actualStderr}`
-
-    return {
-      passed: resultStr.includes(expectedResult.errorTag)
-    }
+function getTestcaseConclusion(tc: {
+  expectedOutput: string,
+  actualOutput: string,
+  actualExitCode: number,
+}): TestcaseConclusion {
+  const result = parseExpectedTypecheckResultFromOutput(tc.expectedOutput)
+  switch (result.type) {
+    case "ok":
+      return tc.actualExitCode === 0 ? 'correct' : 'incorrect'
+    case "type-error":
+      if (result.primaryTags.some(tag => tc.actualOutput.includes(tag))) {
+        return 'correct'
+      } else if (result.alternativeTags.some(tag => tc.actualOutput.includes(tag))) {
+        return 'partially-correct'
+      } else {
+        return 'incorrect'
+      }
+    case "unknown":
+      return 'unknown'
   }
 }
 
@@ -116,24 +145,28 @@ async function main() {
     }
 
     const snippet = (await fs.promises.readFile(srcFilePath)).toString()
-    const expected = (await fs.promises.readFile(outFilePath)).toString()
+    const expectedOutput = (await fs.promises.readFile(outFilePath)).toString()
     const result = await executeTypechecker(typecheckerPath, snippet)
     const conclusion = getTestcaseConclusion({
-      expected,
-      exitCode: result.exitCode,
-      actualStdout: result.stdout,
-      actualStderr: result.stderr,
+      expectedOutput,
+      actualOutput: `${result.stdout}\n${result.stderr}`,
+      actualExitCode: result.exitCode,
     })
 
     const pathRelativeToTests = path.relative(testsDir, srcFilePath)
 
     report.testcases[pathRelativeToTests] = {
-      passed: conclusion.passed,
+      conclusion,
       snippet,
-      expected,
+      expected: expectedOutput,
       exitCode: result.exitCode,
       actualStdout: result.stdout,
       actualStderr: result.stderr,
+    }
+
+    if (conclusion === 'unknown') {
+      console.log('')
+      console.warn(`WARNING: unable to make conclusion for test "${pathRelativeToTests}"`)
     }
 
     bar.increment(1)

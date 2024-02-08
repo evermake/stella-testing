@@ -41,7 +41,7 @@ async function main() {
   for (const path of testPaths) {
     const source = await Bun.file(path).text()
     const result = await runner.typecheck(source)
-    const out = result.ok ? "" : result.detail
+    const out = result.ok ? "" : result.output
     await Bun.write(Bun.file(path.replace(/\.stella$/, ".stella.out")), out)
     bar.increment(1)
   }

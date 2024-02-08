@@ -1,4 +1,7 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
 expected type
   Nat
@@ -6,3 +9,24 @@ but got
   Bool
 for expression
   p . y
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  
+{
+  a : Nat, b : Nat, c : Nat
+}
+
+but got
+  
+{
+  a : Nat, b : Bool, c : Nat
+}
+
+for expression
+  
+{
+  a = p . z, b = p . y, c = p . x
+}

@@ -1,8 +1,32 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_RECORD]
 expected an expression of a non-record type
   Nat
 but got a record
+  
+{
+  f = 0, g = fn (x : Bool)
+  {
+    return if x then succ (0) else 0
+  }
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat
+but got
+  
+{
+  f : Nat, g : fn (Bool) -> Nat
+}
+
+for expression
   
 {
   f = 0, g = fn (x : Bool)

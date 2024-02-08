@@ -1,4 +1,17 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat
+but got
+  Bool
+for expression
+  false
+========================
+Alternative type errors:
+========================
 Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_PARAMETER]
 expected type
   Bool
@@ -9,4 +22,31 @@ in function
   fn (r : Nat)
 {
   return succ (r)
+}
+
+-----
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  fn (Bool) -> Bool
+but got
+  fn (Nat) -> Nat
+for expression
+  fn (r : Nat)
+{
+  return succ (r)
+}
+
+-----
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  fn (Nat) -> fn (Bool) -> Bool
+but got
+  fn (Nat) -> fn (Nat) -> Nat
+for expression
+  fn (i : Nat)
+{
+  return fn (r : Nat)
+  {
+    return succ (r)
+  }
 }

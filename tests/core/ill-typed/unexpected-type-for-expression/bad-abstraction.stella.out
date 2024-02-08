@@ -1,4 +1,7 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
 expected type
   Nat
@@ -6,3 +9,16 @@ but got
   Bool
 for expression
   Nat::iszero (succ (a))
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  fn (Nat) -> Nat
+but got
+  fn (Nat) -> Bool
+for expression
+  fn (a : Nat)
+{
+  return Nat::iszero (succ (a))
+}

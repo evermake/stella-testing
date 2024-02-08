@@ -1,8 +1,25 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_LAMBDA]
 expected an expression of a non-function type
   Nat
 but got an anonymous function
+  fn (n : Nat)
+{
+  return f (n)
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat
+but got
+  fn (Nat) -> Nat
+for expression
   fn (n : Nat)
 {
   return f (n)

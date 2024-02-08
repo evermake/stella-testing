@@ -1,28 +1,30 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 import { Report } from '../types';
 import HighlightedCode from './HighlightedCode.vue';
 
-defineProps<{
+const props = defineProps<{
   testcase: Report["testcases"][number]
 }>()
 
 const expanded = ref(false)
+const resultSymbol = computed(() => {
+  switch (props.testcase.conclusion) {
+    case 'incorrect':
+      return '✘'
+    case 'correct':
+    case 'partially-correct':
+      return '✔'
+    case 'unknown':
+      return '?'
+  }
+})
 </script>
 
 <template>
-  <div
-    :class="[
-      'testcase',
-      (testcase.passed === true) && 'passed',
-      (testcase.passed === false) && 'failed',
-      (testcase.passed === null) && 'unknown',
-    ]"
-  >
+  <div :class="['testcase', testcase.conclusion]">
     <div @click="expanded = !expanded" class="summary">
-      <span class="summary-result">
-        {{ testcase.passed === true ? '✔' : testcase.passed === false ? '✘' : '?'}}
-      </span>
+      <span class="summary-result">{{  resultSymbol }}</span>
       <span class="summary-name">{{ testcase.name }}</span>
     </div>
     <div v-if="expanded" class="details">
@@ -41,15 +43,16 @@ const expanded = ref(false)
   border-bottom: 1px solid #333;
 }
 
-.testcase.passed .summary-result {
+.testcase.correct .summary-result {
   color: #65b687;
 }
 
-.testcase.failed .summary-result {
+.testcase.incorrect .summary-result {
   color: #e86464;
 }
 
-.testcase.unknown .summary-result {
+.testcase.unknown .summary-result,
+.testcase.partially-correct .summary-result {
   color: #f6c748;
 }
 

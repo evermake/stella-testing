@@ -1,4 +1,7 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_TUPLE_LENGTH]
 expected 3 components
 for a tuple of type
@@ -9,6 +12,28 @@ for a tuple of type
 
 but got 4
 in tuple
+  
+{
+  x, succ (x), succ (succ (x)), 0
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  
+{
+  Nat, Nat, Nat
+}
+
+but got
+  
+{
+  Nat, Nat, Nat, Nat
+}
+
+for expression
   
 {
   x, succ (x), succ (succ (x)), 0

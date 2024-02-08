@@ -1,8 +1,29 @@
-TYPE ERROR:
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
 Type Error Tag: [ERROR_UNEXPECTED_TUPLE]
 expected an expression of a non-tuple type
   Nat
 but got a tuple
+  
+{
+  0, 0
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat
+but got
+  
+{
+  Nat, Nat
+}
+
+for expression
   
 {
   0, 0
