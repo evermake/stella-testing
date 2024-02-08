@@ -1,6 +1,12 @@
+export type TestcaseConclusion =
+  | 'incorrect'
+  | 'correct'
+  | 'partially-correct'
+  | 'unknown'
+
 export type Report = {
   testcases: Record<string, {
-    passed: boolean | null,
+    conclusion: TestcaseConclusion,
     snippet: string,
     expected: string,
     actualStdout: string,
