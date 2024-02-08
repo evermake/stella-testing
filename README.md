@@ -1,5 +1,7 @@
 # Stella testing utilities
 
+![Report Viewer Screenshot](./report-viewer/screenshot.png)
+
 ## About
 
 Scripts for testing Stella implementation for the "Advanced Compilers Construction and Program Analysis" course.
