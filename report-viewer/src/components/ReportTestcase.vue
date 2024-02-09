@@ -44,16 +44,16 @@ const resultSymbol = computed(() => {
 }
 
 .testcase.correct .summary-result {
-  color: #65b687;
+  color: var(--c-success);
 }
 
 .testcase.incorrect .summary-result {
-  color: #e86464;
+  color: var(--c-error);
 }
 
 .testcase.unknown .summary-result,
 .testcase.partially-correct .summary-result {
-  color: #f6c748;
+  color: var(--c-warning);
 }
 
 .summary {
