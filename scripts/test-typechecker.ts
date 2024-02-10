@@ -125,7 +125,7 @@ async function main() {
   const reportPath = path.resolve(options.out)
   const typecheckerPath = path.resolve(options.typechecker)
 
-  const srcFilePaths = await glob(path.resolve(testsDir, "**/*.stella"))
+  const srcFilePaths = await glob(path.resolve(testsDir, "**/*.stella").replace(/\\/g,'/'))
 
   console.log(`Testing typechecker with ${srcFilePaths.length} Stella files...`)
   const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
