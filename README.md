@@ -11,8 +11,8 @@ Scripts for testing Stella implementation for the "Advanced Compilers Constructi
 To test your implementation you need:
 
 1. **Prepare test files**: (already generated and located at `./tests` directory for you) `.stella` and `.stella.out` files containing output from the correct Stella implementation
-2. [**Generate report**: run your implementation across these test files and generate report in `.json` format](#generating-reports)
-3. [**Explore report**: see the results](#printing-report)
+2. [**Generate report**: run your implementation across these test files and generate report in `.json` format](#generating-report)
+3. [**Explore report**: see the results](#exploring-report)
 
 ### Generating report
 
