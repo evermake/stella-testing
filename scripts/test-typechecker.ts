@@ -103,6 +103,10 @@ async function executeTypechecker(
       throw new Error("child.stdin is null")
     }
 
+    child.stdin.on('error', (err) => {
+      console.error('Error writing to stdin of a process:', err)
+    })
+
     child.stdin.write(input)
     child.stdin.end()
   })
