@@ -122,7 +122,11 @@ function compareTestcaseConclusion(
           Name {{ sorting === 'name-asc' ? '↑' : sorting === 'name-desc' ? '↓' : '' }}
         </span>
       </div>
-      <ReportTestcase v-for="tc in sortedTestcases" :testcase="tc" />
+      <ReportTestcase
+        v-for="tc in sortedTestcases"
+        :key="tc.name"
+        :testcase="tc"
+      />
     </div>
   </div>
 </template>
