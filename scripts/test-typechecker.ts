@@ -58,8 +58,6 @@ function parseExpectedTypecheckResultFromOutput(out: string): ExpectedTypecheckR
   const errorTags = Array.from(out.matchAll(ERROR_TAG_REGEX), m => m[1])
 
   if (errorTags.length !== 1) {
-    console.log("not 1 tag found");
-    
     return { type: 'unknown' }
   }
 
