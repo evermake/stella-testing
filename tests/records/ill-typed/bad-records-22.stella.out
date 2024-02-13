@@ -1,0 +1,40 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_RECORD_FIELDS]
+unexpected fields
+  z
+for an expected record of type
+  
+{
+  x : fn (Bool) -> Nat, y : Nat
+}
+
+
+Perhaps, you would like to enable #structural-subtyping extension?
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  
+{
+  x : fn (Bool) -> Nat, y : Nat
+}
+
+but got
+  
+{
+  x : fn (Bool) -> Nat, z : Nat
+}
+
+for expression
+  
+{
+  x = fn (x : Bool)
+  {
+    return if k (succ (0)) then if x then 0 else succ (0) else succ (succ (0))
+  }
+  , z = succ (0)
+}

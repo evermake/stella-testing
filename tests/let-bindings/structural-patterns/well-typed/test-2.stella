@@ -1,0 +1,9 @@
+language core;
+
+extend with #let-bindings, #let-patterns, #structural-patterns, #tuples;
+
+fn main(n : Nat) -> Nat {
+  return
+  	let {x, y, z} = {0, true, fn(x : Bool){ return if x then false else true}} in
+    if z(y) then x else succ(x)
+}

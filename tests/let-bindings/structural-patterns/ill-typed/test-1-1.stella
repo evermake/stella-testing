@@ -1,0 +1,9 @@
+language core;
+
+extend with #let-bindings, #let-patterns, #structural-patterns, #pairs;
+
+fn main(n : Nat) -> Nat {
+  return
+  	let {x, y} = {true, 0} in
+    if y then x else succ(x)
+}

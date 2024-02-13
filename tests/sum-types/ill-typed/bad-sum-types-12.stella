@@ -1,0 +1,13 @@
+language core;
+extend with #sum-types;
+
+fn g(x : Nat + Bool) -> Nat {
+  return match false {
+      inr(bf) => if bf then 0 else succ(0) // Incorrect pattern for type Nat
+    | inl(n) => succ(n) // Correct pattern for type Nat
+  }
+}
+
+fn main(x : Nat) -> Nat {
+  return g(inr(false))
+}

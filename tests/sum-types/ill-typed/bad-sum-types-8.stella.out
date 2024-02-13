@@ -1,0 +1,16 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Bool + (fn (Nat) -> Nat)
+but got
+  Nat
+for expression
+  n
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_AMBIGUOUS_SUM_TYPE]
+type inference for sum types is not supported (use type ascriptions)

@@ -1,0 +1,15 @@
+language core;
+
+extend with #let-bindings, #let-patterns, #structural-patterns, #records;
+
+fn main(n : Nat) -> Nat {
+  return
+  	let x = { o =
+      { a = 0
+      , b = true
+      , c = fn(x : Bool){ return if x then false else true}
+      } } in
+    let {o = y} = x in
+    let { a = u, d = v, c = z} = y in
+    if z(y.b) then x.o.a else succ(x.o.a)
+}
