@@ -1,24 +1,12 @@
 An error occurred during typechecking!
-Type Error Tag: [ERROR_NONEXHAUSTIVE_LET_PATTERNS]
-non-exhaustive pattern matches
-when matching on expression
-  
+Type Error Tag: [ERROR_UNEXPECTED_PATTERN_FOR_TYPE]
+expected a pattern for 
 {
-  0, true, false
+  Nat, Bool, Bool
 }
 
-at least the following patterns are not matched:
+but got
   
 {
-  0, false, false
-}
-
-  
-{
-  0, false, true
-}
-
-  
-{
-  0, true, false
+  x, y
 }

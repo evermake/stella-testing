@@ -1,27 +1,12 @@
 An error occurred during typechecking!
-Type Error Tag: [ERROR_NONEXHAUSTIVE_LET_PATTERNS]
-non-exhaustive pattern matches
-when matching on expression
-  
+Type Error Tag: [ERROR_UNEXPECTED_PATTERN_FOR_TYPE]
+expected a pattern for 
 {
-  0, true, fn (x : Bool)
-  {
-    return if x then false else true
-  }
+  Nat, Bool, fn (Bool) -> Bool
 }
 
-at least the following patterns are not matched:
+but got
   
 {
-  0, false, <placeholder>
-}
-
-  
-{
-  0, true, <placeholder>
-}
-
-  
-{
-  succ (0), false, <placeholder>
+  x, y, z, w
 }

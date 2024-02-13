@@ -1,2 +1,27 @@
 An error occurred during typechecking!
-pattern matching for record types is not implemented
+Type Error Tag: [ERROR_NONEXHAUSTIVE_LET_PATTERNS]
+non-exhaustive pattern matches
+when matching on expression
+  
+{
+  a = 0, b = true, c = fn (x : Bool)
+  {
+    return if x then false else true
+  }
+}
+
+at least the following patterns are not matched:
+  
+{
+  a = 0, b = true, c = <placeholder>
+}
+
+  
+{
+  a = succ (0), b = true, c = <placeholder>
+}
+
+  
+{
+  a = succ (succ (<placeholder>)), b = true, c = <placeholder>
+}
