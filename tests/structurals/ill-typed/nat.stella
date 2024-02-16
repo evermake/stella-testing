@@ -1,0 +1,9 @@
+language core;
+extend with #structural-patterns;
+
+fn main(input : Nat) -> Bool {
+  return
+    match input {
+      0 => true
+   }
+}

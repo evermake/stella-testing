@@ -4,4 +4,4 @@ non-exhaustive pattern matches
 when matching on expression
   x
 at least the following patterns are not matched:
-  <| boolean = x1 |>
+  <| boolean = __something__ |>

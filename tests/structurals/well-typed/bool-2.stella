@@ -1,0 +1,10 @@
+language core;
+extend with #structural-patterns;
+
+fn main(input : Bool) -> Bool {
+  return
+    match input {
+      true => false
+      | v => true
+   }
+}

@@ -3,10 +3,10 @@ language core;
 extend with #let-bindings;
 
 fn check(h : Bool) -> Nat {
-	return if h then succ(0) else 0;
+	return if h then succ(0) else 0
 }
 
 fn main(n : Nat) -> Nat {
   return
-  	let bad = false in check(bad);
+  	let bad = false in check(bad)
 }

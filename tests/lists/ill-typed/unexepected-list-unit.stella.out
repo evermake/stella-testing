@@ -1,0 +1,19 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_LIST]
+expected an expression of a non-list type
+  Unit
+but got a list
+  [unit]
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Unit
+but got
+  [Unit]
+for expression
+  [unit]

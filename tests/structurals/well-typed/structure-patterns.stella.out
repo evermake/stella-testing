@@ -6,7 +6,7 @@ when matching on expression
 at least the following patterns are not matched:
   
 {
-  current = 0, next = succ (succ (<placeholder>))
+  current = 0, next = succ (succ (__something__))
 }
 
   

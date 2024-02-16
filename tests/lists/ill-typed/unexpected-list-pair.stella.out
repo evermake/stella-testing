@@ -1,0 +1,43 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_LIST]
+expected an expression of a non-list type
+  
+{
+  {
+    Nat, Nat
+  }
+  ,
+  {
+    Nat, Nat
+  }
+}
+
+but got a list
+  [x, x]
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  
+{
+  {
+    Nat, Nat
+  }
+  ,
+  {
+    Nat, Nat
+  }
+}
+
+but got
+  [
+{
+  Nat, Nat
+}
+]
+for expression
+  [x, x]

@@ -1,0 +1,9 @@
+language core;
+
+extend with #sum-types;
+extend with #type-ascriptions;
+extend with #pairs;
+
+fn main(n : Nat) -> Nat {
+  return {inl(0) as (Nat + Bool), 0}.2
+}

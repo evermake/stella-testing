@@ -1,0 +1,6 @@
+language core;
+extend with #lists;
+
+fn main(x : Nat) -> Nat {
+    return (if [false] then fn(x : Nat) { return 0 } else fn(x : Nat) { return 0 } )(0)
+}

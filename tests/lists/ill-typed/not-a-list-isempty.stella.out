@@ -1,0 +1,8 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_NOT_A_LIST]
+expected a list type but got
+  Nat
+for the expression
+  succ (0)
+in the expression
+  List::isempty (succ (0))

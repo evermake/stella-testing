@@ -1,0 +1,11 @@
+language core;
+extend with #unit-type;
+extend with #lists;
+
+fn seq(_ : Unit) -> fn(Unit) -> Unit {
+  return fn(x : Unit) { return x }
+}
+
+fn main(x : Nat) -> Unit {
+	return seq(seq(seq([unit])(unit))(seq(unit)))(seq(seq(unit)(unit))(seq(unit)(unit)))
+}

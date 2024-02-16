@@ -1,0 +1,12 @@
+language core;
+extend with #structural-patterns, #records;
+
+fn main(input : {a : Nat, b : Nat}) -> Bool {
+  return
+    match input {
+      {b = 0} => true
+      | {a = 0, b = n} => false
+      | {a = n, b = 0} => false
+      | {a = x, b = y} => true
+   }
+}

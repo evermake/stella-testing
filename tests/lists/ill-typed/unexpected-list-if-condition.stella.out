@@ -1,0 +1,19 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_LIST]
+expected an expression of a non-list type
+  Bool
+but got a list
+  [false]
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Bool
+but got
+  [Bool]
+for expression
+  [false]

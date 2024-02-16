@@ -1,3 +1,7 @@
 An error occurred during typechecking!
-Type Error Tag: [ERROR_ILLEGAL_MATCHING_FOR_TYPE]
-pattern matching on functions is not allowed
+Type Error Tag: [ERROR_NONEXHAUSTIVE_MATCH_PATTERNS]
+non-exhaustive pattern matches
+when matching on expression
+  x
+at least the following patterns are not matched:
+  inr (__something__)

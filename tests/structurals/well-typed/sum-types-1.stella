@@ -1,0 +1,10 @@
+language core;
+extend with #structural-patterns, #sum-types;
+
+fn main(input : Nat + Bool) -> Bool {
+  return
+    match input {
+        inl(n) => false
+      | v => true
+   }
+}

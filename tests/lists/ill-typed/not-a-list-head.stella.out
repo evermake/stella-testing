@@ -1,0 +1,21 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  [Nat]
+but got
+  Nat
+for expression
+  0
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_NOT_A_LIST]
+expected a list type but got
+  Nat
+for the expression
+  0
+in the expression
+  List::head (0)

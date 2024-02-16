@@ -13,15 +13,15 @@ when matching on expression
 at least the following patterns are not matched:
   
 {
-  a = 0, b = true, c = <placeholder>
+  a = 0, b = true, c = __something__
 }
 
   
 {
-  a = succ (0), b = true, c = <placeholder>
+  a = succ (0), b = true, c = __something__
 }
 
   
 {
-  a = succ (succ (<placeholder>)), b = true, c = <placeholder>
+  a = succ (succ (__something__)), b = true, c = __something__
 }

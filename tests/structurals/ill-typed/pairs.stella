@@ -1,0 +1,12 @@
+language core;
+extend with #structural-patterns, #pairs;
+
+fn main(input : {Nat, Nat}) -> Bool {
+  return
+    match input {
+      {0} => true
+      | {n, 0} => false
+      | {0, n} => false
+      | {a, b} => true
+   }
+}
