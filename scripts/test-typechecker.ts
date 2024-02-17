@@ -104,7 +104,7 @@ async function execCmd({
     const proc = (spawn as typeof nodeSpawn)(command, args, { stdio: 'pipe' })
 
     if (!proc.stdin) {
-      reject("proc.stdin is null")
+      reject(new Error('proc.stdin is null'))
       return
     }
 
@@ -114,9 +114,6 @@ async function execCmd({
     proc.stdout?.on('data', (chunk) => stdoutChunks.push(chunk))
     proc.stderr?.on('data', (chunk) => stderrChunks.push(chunk))
 
-    proc.stdin.write(stdin)
-    proc.stdin.end()
-
     proc.on('close', (exitCode) => {
       resolve({
         exitCode: exitCode ?? 0,
@@ -124,6 +121,13 @@ async function execCmd({
         stderr: Buffer.concat(stderrChunks).toString(),
       })
     })
+
+    proc.stdin.write(stdin, (err) => {
+      if (err) {
+        reject(err)
+      }
+    })
+    proc.stdin.end()
   })
 }
 
@@ -149,8 +153,8 @@ async function main() {
   const srcFilePaths = await glob(path.resolve(testsDir, "**/*.stella").replace(/\\/g,'/'))
 
   console.log(`Testing typechecker with ${srcFilePaths.length} Stella files...`)
-  const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic);
-  bar.start(srcFilePaths.length, 0);
+  const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic)
+  bar.start(srcFilePaths.length, 0)
 
   const report: Report = { testcases: {} }
 
@@ -159,7 +163,7 @@ async function main() {
     const outFilePath = srcFilePath.replace(/\.stella$/, ".stella.out")
 
     if (!(await fileExists(outFilePath))) {
-      console.log(`No .stella.out file found for ${srcFilePath}, skipping...`)
+      console.warn(`No .stella.out file found for ${srcFilePath}, skipping...`)
       continue
     }
 
