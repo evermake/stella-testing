@@ -17,6 +17,14 @@ async function fileExists(path: string) {
   }
 }
 
+function getCoresCount() {
+  let count = os.cpus().length
+  if ('availableParallelism' in os) {
+    count = os.availableParallelism()
+  }
+  return count
+}
+
 export type ExpectedTypecheckResult =
   | { type: 'unknown' }
   | { type: 'ok' }
@@ -240,7 +248,7 @@ async function main() {
   await runTasks({
     tasks: srcFilePaths,
     runner: runTest,
-    parallelism: os.availableParallelism(),
+    parallelism: getCoresCount(),
     onResult: (tc) => {
       testcases.push(tc)
       bar.increment(1)
