@@ -1,5 +1,6 @@
 import path from "node:path"
 import fs from "node:fs"
+import os from "node:os"
 import type { spawn as nodeSpawn } from "node:child_process"
 import spawn from "cross-spawn"
 import { program } from "commander"
@@ -131,6 +132,52 @@ async function execCmd({
   })
 }
 
+async function runTasks<I, O>({
+  tasks,
+  runner,
+  parallelism,
+  onResult,
+  onError,
+}: {
+  tasks: I[],
+  runner: (input: I) => Promise<O>,
+  parallelism: number,
+  onResult: (result: O) => void,
+  onError: (error: Error) => void
+}): Promise<void> {
+  return new Promise((resolve) => {
+    let nextTaskIndex = 0
+    let runningTasks = 0
+
+    const runNextTask = () => {
+      if (nextTaskIndex >= tasks.length) {
+        if (runningTasks === 0) {
+          resolve()
+        }
+        return
+      }
+
+      const task = tasks[nextTaskIndex++]
+      runningTasks++
+      runner(task)
+        .then((result) => {
+          onResult(result)
+        })
+        .catch((err) => {
+          onError(err as Error)
+        })
+        .finally(() => {
+          runningTasks--
+          runNextTask()
+        })
+    }
+
+    for (let i = 0; i < parallelism; i++) {
+      runNextTask()
+    }
+  })
+}
+
 async function main() {
   program
     .name('test-typechecker')
@@ -156,15 +203,11 @@ async function main() {
   const bar = new cliProgress.SingleBar({}, cliProgress.Presets.shades_classic)
   bar.start(srcFilePaths.length, 0)
 
-  const report: Report = { testcases: {} }
-
-  for (let i = 0; i < srcFilePaths.length; i++) {
-    const srcFilePath = srcFilePaths[i]
-    const outFilePath = srcFilePath.replace(/\.stella$/, ".stella.out")
+  const runTest = async (srcFilePath: string): Promise<[string, Report['testcases'][string]]> => {
+    const outFilePath = srcFilePath.replace(/\.stella$/, '.stella.out')
 
     if (!(await fileExists(outFilePath))) {
-      console.warn(`No .stella.out file found for ${srcFilePath}, skipping...`)
-      continue
+      throw new Error(`No .stella.out file found for test ${srcFilePath}.`)
     }
 
     const snippet = (await fs.promises.readFile(srcFilePath)).toString()
@@ -180,27 +223,38 @@ async function main() {
       actualExitCode: result.exitCode,
     })
 
-    const pathRelativeToTests = path.relative(testsDir, srcFilePath)
-
-    report.testcases[pathRelativeToTests] = {
-      conclusion,
-      snippet,
-      expected: expectedOutput,
-      exitCode: result.exitCode,
-      actualStdout: result.stdout,
-      actualStderr: result.stderr,
-    }
-
-    if (conclusion === 'unknown') {
-      console.log('')
-      console.warn(`WARNING: unable to make conclusion for test "${pathRelativeToTests}"`)
-    }
-
-    bar.increment(1)
+    return [
+      path.relative(testsDir, srcFilePath),
+      {
+        conclusion,
+        snippet,
+        expected: expectedOutput,
+        exitCode: result.exitCode,
+        actualStdout: result.stdout,
+        actualStderr: result.stderr,
+      },
+    ]
   }
 
+  const testcases: [string, Report['testcases'][string]][] = []
+  await runTasks({
+    tasks: srcFilePaths,
+    runner: runTest,
+    parallelism: os.availableParallelism(),
+    onResult: (tc) => {
+      testcases.push(tc)
+      bar.increment(1)
+    },
+    onError: (err) => {
+      console.warn(err.message)
+      bar.increment(1)
+    }
+  })
   bar.stop()
 
+  const report: Report = {
+    testcases: Object.fromEntries(testcases)
+  }
   await fs.promises.writeFile(reportPath, JSON.stringify(report, null, 2))
 }
 
