@@ -1,5 +1,5 @@
 language core;
-extend with #structural-patterns, #sum-types;
+extend with #structural-patterns, #unit-type;
 
 fn main(input : Unit) -> Bool {
   return
