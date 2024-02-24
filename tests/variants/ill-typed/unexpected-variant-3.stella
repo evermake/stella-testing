@@ -1,0 +1,15 @@
+language core;
+extend with #lists;
+extend with #variants;
+
+fn proc(list : [Bool]) -> Nat {
+  return if List::head(list)
+    then 0
+    else if List::head(list)
+             then succ(0)
+             else succ(succ(0));
+}
+
+fn main(n : Nat) -> Nat {
+  return proc(cons(false, [true, false, <| value = n |>, false]))
+}

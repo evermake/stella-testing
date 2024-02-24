@@ -1,0 +1,24 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_VARIANT]
+expected an expression of a non-variant type
+  
+{
+  {
+    Nat, Nat
+  }
+  ,
+  {
+    Nat, Nat
+  }
+}
+
+but got a variant
+  <| value = x |>
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_AMBIGUOUS_VARIANT_TYPE]
+type inference for variants is not supported (use type ascriptions)

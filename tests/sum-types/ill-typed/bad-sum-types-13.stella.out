@@ -5,5 +5,5 @@ unexpected pattern
 when pattern matching is expected for type
   
 {
-  Nat
+  Nat, Nat
 }

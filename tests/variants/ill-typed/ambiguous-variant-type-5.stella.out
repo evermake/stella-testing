@@ -1,0 +1,29 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
+but got
+  <| number : Bool, boolean : Bool, function : fn (Nat) -> Nat |>
+for expression
+  <| function = fn (n : Nat)
+{
+  return g (<| number = n |> as <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>)
+}
+|>
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
+but got
+  <| number : Bool, boolean : Bool, function : fn (Nat) -> Nat |>
+for expression
+  <| function = fn (n : Nat)
+{
+  return g (<| number = n |> as <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>)
+}
+|> as <| number : Bool, boolean : Bool, function : fn (Nat) -> Nat |>

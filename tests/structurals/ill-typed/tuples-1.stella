@@ -1,0 +1,12 @@
+language core;
+
+extend with #structural-patterns, #tuples;
+
+fn main(n : {Nat, Nat, Nat}) -> Nat {
+  return match n {
+  		{0, 0, 0} => 0
+    | {0, 0} => succ(0)
+    | {a, 0, b} => succ(succ(0))
+    | _ => succ(succ(succ(0)))
+  }
+}

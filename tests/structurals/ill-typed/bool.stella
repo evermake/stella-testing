@@ -1,5 +1,5 @@
 language core;
-extend with #structural-patterns, #sum-types, #lists;
+extend with #structural-patterns, #sum-types;
 
 fn main(input : Bool) -> Bool {
   return

@@ -1,0 +1,3 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_AMBIGUOUS_VARIANT_TYPE]
+type inference for variants is not supported (use type ascriptions)

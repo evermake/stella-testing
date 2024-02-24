@@ -1,0 +1,14 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  fn (fn (Bool) -> Bool) -> fn (Bool) -> Bool
+but got
+  fn (fn (Bool) -> Bool) -> fn (Bool) -> Nat
+for expression
+  fn (f : fn (Bool) -> Bool)
+{
+  return fn (a : Bool)
+  {
+    return if a then 0 else succ (0)
+  }
+}

@@ -1,0 +1,24 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
+but got
+  <| number1 : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
+for expression
+  <| number = n |>
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_VARIANT_LABEL]
+unexpected label
+ number
+for a variant type
+  <| number1 : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
+in variant expression
+  <| number = n |>
+-----
+Type Error Tag: [ERROR_AMBIGUOUS_VARIANT_TYPE]
+type inference for variants is not supported (use type ascriptions)

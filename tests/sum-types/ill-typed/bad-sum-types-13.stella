@@ -5,7 +5,7 @@ extend with #pairs ;
 fn g(x : Nat + (Bool + (fn(Nat) -> Nat))) -> Nat {
   return match x {
       inl(n) => succ(n)
-    | inr(bf) => match {succ(0)} {
+    | inr(bf) => match {succ(0), 0} {
           inr(f) => f(f(succ(0)))
         | inl(b) => if b then succ(0) else 0
       }

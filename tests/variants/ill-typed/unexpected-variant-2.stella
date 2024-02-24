@@ -1,0 +1,7 @@
+language core;
+extend with #lists;
+extend with #variants;
+
+fn main(x : Nat) -> Nat {
+    return (if <| value = n |> then fn(x : Nat) { return 0 } else fn(x : Nat) { return 0 } )(0)
+}

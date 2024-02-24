@@ -1,0 +1,13 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_PATTERN_FOR_TYPE]
+unexpected pattern
+  
+{
+  0, 0
+}
+
+when pattern matching is expected for type
+  
+{
+  Nat, Nat, Nat
+}

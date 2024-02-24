@@ -1,0 +1,24 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Bool
+but got
+  Nat
+for expression
+  succ (n)
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Bool
+but got
+  Nat
+for expression
+  match x
+{
+  <| number = n |> => succ (n) | <| boolean = b |> => if b then succ (0) else 0 | <| function = f |> => f (f (succ (0)))
+}

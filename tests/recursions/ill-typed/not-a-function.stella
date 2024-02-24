@@ -1,0 +1,7 @@
+language core;
+
+extend with #fixpoint-combinator;
+
+fn main(n : Bool) -> Nat {
+  return fix(n)
+}

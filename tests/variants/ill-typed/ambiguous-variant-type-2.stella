@@ -1,0 +1,9 @@
+language core;
+
+extend with #variants;
+extend with #type-ascriptions;
+extend with #pairs;
+
+fn main(n : Nat) -> Nat {
+  return {<| value = n |>, 0}.2
+}
