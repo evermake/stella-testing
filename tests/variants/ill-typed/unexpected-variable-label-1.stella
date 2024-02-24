@@ -1,0 +1,6 @@
+language core;
+extend with #variants;
+
+fn main(a : Nat) -> <| foo : Nat |> {
+    return <| bar = 0 |>
+}

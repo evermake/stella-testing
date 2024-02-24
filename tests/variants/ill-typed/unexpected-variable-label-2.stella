@@ -4,6 +4,7 @@ extend with #variants;
 fn g(x : <| number : Nat, boolean : Bool, function : fn(Nat) -> Nat |>) -> Nat {
   return match x {
       <| number   = n |> => succ(n)
+    | <| boolean = x |> => succ(succ(0))
     | <| function = f |> => f(f(succ(0)))
   }
 }

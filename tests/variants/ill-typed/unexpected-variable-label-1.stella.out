@@ -1,0 +1,16 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_VARIANT_LABEL]
+unexpected label
+ bar
+for a variant type
+  <| foo : Nat |>
+in variant expression
+  <| bar = 0 |>
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_AMBIGUOUS_VARIANT_TYPE]
+type inference for variants is not supported (use type ascriptions)
