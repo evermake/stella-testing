@@ -1,0 +1,7 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_NULLARY_VARIANT_PATTERN]
+expected a pattern for non-nullary label nval
+for a variant of type
+  <| nval : Nat, sval : Bool |>
+in pattern
+  <| nval |>

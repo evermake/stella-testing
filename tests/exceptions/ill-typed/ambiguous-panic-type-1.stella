@@ -1,0 +1,7 @@
+language core;
+
+extend with #panic;
+
+fn main(a : Nat) -> Nat {
+  return panic!(0)
+}

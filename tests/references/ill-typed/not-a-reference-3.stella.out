@@ -1,0 +1,52 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TUPLE]
+expected an expression of a non-tuple type
+  &
+{
+  Nat, Nat
+}
+
+but got a tuple
+  
+{
+  0, x
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  &
+{
+  Nat, Nat
+}
+
+but got
+  
+{
+  Nat, Nat
+}
+
+for expression
+  
+{
+  0, x
+}
+
+-----
+Type Error Tag: [ERROR_NOT_A_REFERENCE]
+cannot dereference an expression
+  
+{
+  0, x
+}
+
+of a non-reference type
+  
+{
+  Nat, Nat
+}

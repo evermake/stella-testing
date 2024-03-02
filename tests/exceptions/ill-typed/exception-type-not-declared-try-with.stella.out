@@ -1,0 +1,11 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_EXCEPTION_TYPE_NOT_DECLARED]
+cannot throw exceptions, because exception type is not declared
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_AMBIGUOUS_THROW_TYPE]
+cannot infer type for throw

@@ -1,0 +1,7 @@
+language core;
+
+extend with #references;
+
+fn main(a : Nat) -> Nat {
+  return *<0x0>
+}

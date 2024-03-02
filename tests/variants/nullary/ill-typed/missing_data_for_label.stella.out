@@ -1,0 +1,13 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_MISSING_DATA_FOR_LABEL]
+expected a unary label nval
+with associated value of type
+  Nat
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_AMBIGUOUS_VARIANT_TYPE]
+type inference for variants is not supported (use type ascriptions)

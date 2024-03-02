@@ -1,0 +1,19 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  & Bool
+but got
+  Bool
+for expression
+  swap (true)
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_NOT_A_REFERENCE]
+cannot dereference an expression
+  swap (true)
+of a non-reference type
+  Bool

@@ -1,0 +1,9 @@
+language core;
+
+extend with #exceptions, #exception-type-declaration;
+
+exception type = Nat
+
+fn main(n : Nat) -> fn(Bool) -> Nat {
+  return (fn (b : Bool) { return  throw(0) })(true)
+}

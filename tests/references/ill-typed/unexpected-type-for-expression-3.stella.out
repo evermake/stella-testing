@@ -1,0 +1,21 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  & & Nat
+but got
+  & Nat
+for expression
+  ref
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  & Nat
+but got
+  Nat
+for expression
+  * ref

@@ -1,0 +1,14 @@
+language core;
+
+extend with #variants, #nullary-variant-labels;
+
+fn foo(var_val : <| nval, bval |>) -> Bool {
+  return match var_val {
+      <| nval |> => true
+    | <| bval |> => false
+  }
+}
+
+fn main(succeed : Bool) -> Nat {
+  return succ(0)
+}

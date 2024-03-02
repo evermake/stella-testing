@@ -1,0 +1,11 @@
+language core;
+
+extend with #variants, #nullary-variant-labels;
+
+fn foo(bval : Bool) -> <| nval, sval |> {
+	return <| nval = 0 |>
+}
+
+fn main(succeed : Bool) -> Nat {
+  return succ(0)
+}

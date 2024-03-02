@@ -1,3 +1,0 @@
-An error occurred during typechecking!
-Type Error Tag: [ERROR_AMBIGUOUS_PANIC_TYPE]
-cannot infer type for panic

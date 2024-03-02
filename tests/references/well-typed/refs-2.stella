@@ -1,6 +1,6 @@
 language core;
 
-extend with #references, #sequencing, #unit-type;
+extend with #references, #sequencing;
 
 fn inc(ref : &Nat) -> Unit {
     return ref := succ(*ref)

@@ -1,0 +1,28 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Bool
+but got
+  Nat
+for expression
+  fail (n)
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Bool
+but got
+  Nat
+for expression
+  try
+{
+  fail (n)
+}
+catch
+{
+  a => succ (0)
+}

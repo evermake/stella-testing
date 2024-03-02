@@ -1,0 +1,9 @@
+language core;
+
+extend with #exceptions, #exception-type-declaration, #variants;
+
+exception type = <| good : Nat |>
+
+fn main(n : Nat) -> Bool {
+    return throw(<| good = true |>)
+}

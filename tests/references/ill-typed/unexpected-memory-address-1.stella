@@ -1,0 +1,11 @@
+language core;
+
+extend with #references;
+
+fn chck(b : Bool) -> Bool {
+  return (if true then false else true)
+}
+
+fn main(b : Bool) -> Bool {
+  return chck(<0xABCDEF>)
+}

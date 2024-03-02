@@ -1,6 +1,0 @@
-An error occurred during typechecking!
-Type Error Tag: [ERROR_NOT_A_REFERENCE]
-cannot dereference an expression
-  input
-of a non-reference type
-  Nat

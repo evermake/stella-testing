@@ -1,0 +1,19 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  & Nat
+but got
+  Nat
+for expression
+  p . x
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_NOT_A_REFERENCE]
+cannot dereference an expression
+  p . x
+of a non-reference type
+  Nat

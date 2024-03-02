@@ -3,14 +3,12 @@ language core;
 extend with
   #references,
   #sequencing,
-  #let-bindings,
-  #arithmetic-operators,
-  #natural-literals;
+  #let-bindings;
 
 fn main(n : Nat) -> Nat {
   return
     let x = new(0) in
-    x := *x + 1;
-    x := *x * *x;
+    x := (succ (*x));
+    x := *x;
     *x
 }

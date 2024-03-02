@@ -1,0 +1,7 @@
+language core;
+
+extend with #references;
+
+fn main(b : Bool) -> Bool {
+  return <0xABCDEF>
+}

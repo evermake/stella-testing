@@ -1,0 +1,9 @@
+ERROR:
+Unsupported Syntax Error: ERROR_DUPLICATE_RECORD_FIELDS
+duplicate record fields
+  x
+in record
+  
+{
+  x = p . y, x = p . x
+}
