@@ -1,0 +1,21 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_SUBTYPE]
+expected a subtype of
+  Bool
+but got
+  Top
+when typechecking expression
+  x
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_UNEXPECTED_SUBTYPE]
+expected a subtype of
+  Bool
+but got
+  Top
+when typechecking expression
+  [x, true]

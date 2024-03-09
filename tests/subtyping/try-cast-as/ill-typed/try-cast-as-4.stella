@@ -1,0 +1,9 @@
+language core;
+extend with #try-cast-as;
+
+fn main(x : Nat) -> Bool {
+  return
+    try { x } cast as Nat {
+      y => true
+    } with { 0 }
+}

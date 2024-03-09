@@ -1,0 +1,18 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
+missing fields
+  a
+for an expected record type
+  
+{
+  b : Bool, a : Nat
+}
+
+in the actual type
+  
+{
+  b : Bool
+}
+
+when typechecking expression
+  x

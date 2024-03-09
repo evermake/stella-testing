@@ -1,0 +1,4 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_AMBIGUOUS_PATTERN_TYPE]
+cannot infer the type for pattern
+  bad

@@ -1,0 +1,15 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
+missing fields
+  d
+for an expected record type
+  
+{
+  c : Nat, d : Bool
+}
+
+in the actual type
+  
+{
+  c : Nat
+}

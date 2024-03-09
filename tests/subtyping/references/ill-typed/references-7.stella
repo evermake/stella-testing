@@ -1,0 +1,10 @@
+language core;
+extend with
+  #structural-subtyping,
+  #references,
+  #records,
+  #top-type;
+
+fn main(x : Nat) -> &{ a : Nat, b : Nat } {
+  return new({ a = 0 })
+}

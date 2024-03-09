@@ -1,0 +1,12 @@
+language core;
+extend with
+  #structural-subtyping,
+  #exceptions,
+  #exception-type-declaration,
+  #top-type;
+
+exception type = Top
+
+fn main(a : Nat) -> Nat {
+  return throw(0)
+}

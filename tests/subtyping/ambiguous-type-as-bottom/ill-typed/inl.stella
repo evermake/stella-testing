@@ -1,0 +1,11 @@
+language core;
+extend with
+  #ambiguous-type-as-bottom,
+  #sum-types,
+  #bottom-type;
+
+fn main(a : Nat) -> Bot + Nat {
+  return (fn (b : Nat) {
+    return inl(0)
+  })(0)
+}

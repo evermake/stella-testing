@@ -1,8 +1,4 @@
 An error occurred during typechecking!
-Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
-expected type
-  Bool
-but got
-  Nat
-for expression
+Type Error Tag: [ERROR_AMBIGUOUS_PATTERN_TYPE]
+cannot infer the type for pattern
   bad

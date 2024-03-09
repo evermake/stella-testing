@@ -1,4 +1,15 @@
 An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_REFERENCE]
+expected an expression of a non-reference type
+  Bool
+but got a new reference
+  false
+========================
+Alternative type errors:
+========================
 Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
 expected type
   Bool

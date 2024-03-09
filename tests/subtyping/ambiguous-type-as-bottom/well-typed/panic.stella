@@ -1,0 +1,11 @@
+language core;
+extend with
+  #ambiguous-type-as-bottom,
+  #panic,
+  #bottom-type;
+
+fn main(a : Nat) -> Bot {
+  return (fn (b : Nat) {
+    return panic!
+  })(0)
+}

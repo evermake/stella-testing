@@ -1,0 +1,24 @@
+language core;
+extend with
+  #try-cast-as,
+  #structural-subtyping,
+  #top-type,
+  #variants,
+  #sum-types;
+
+fn isFalseOrZero(x : Top) -> Bool {
+  return
+    try { x } cast as <| a : Nat |> {
+      inl(n) => Nat::iszero(n)
+    } with {
+      try { x } cast as Bool {
+        b => if b then false else true
+      } with {
+        false
+      }
+    }
+}
+
+fn main(n : Nat) -> Bool {
+  return isFalseOrZero(n)
+}

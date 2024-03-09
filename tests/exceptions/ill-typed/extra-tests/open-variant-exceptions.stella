@@ -1,0 +1,12 @@
+language core;
+
+extend with
+    #exceptions,
+    #open-variant-exceptions,
+    #variants;
+
+exception variant error_code : Nat
+exception variant good : Bool
+fn main(n : Nat) -> Bool {
+    return throw(0)
+}

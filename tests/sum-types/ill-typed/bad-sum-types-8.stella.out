@@ -13,4 +13,4 @@ for expression
 Alternative type errors:
 ========================
 Type Error Tag: [ERROR_AMBIGUOUS_SUM_TYPE]
-type inference for sum types is not supported (use type ascriptions)
+type inference for sum types is not supported (use type ascriptions or enable #ambiguous-type-as-bottom)

@@ -1,0 +1,8 @@
+language core;
+extend with
+  #structural-subtyping,
+  #variants;
+
+fn main(x : <| a : Nat |>) -> <| a : Nat, b : Bool |> {
+  return x
+}

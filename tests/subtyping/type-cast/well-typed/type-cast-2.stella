@@ -1,0 +1,6 @@
+language core;
+extend with #structural-subtyping, #type-cast, #top-type, #records;
+
+fn main(a : { a : Nat }) -> Top {
+  return a cast as { a : Nat, b : Bool }
+}

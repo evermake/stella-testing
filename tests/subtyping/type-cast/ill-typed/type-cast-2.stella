@@ -1,0 +1,6 @@
+language core;
+extend with #type-cast;
+
+fn main(a : Nat) -> Nat {
+  return succ(false) cast as Nat
+}

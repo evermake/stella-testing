@@ -1,0 +1,11 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_SUBTYPE]
+expected a subtype of
+  Nat
+but got
+  Top
+when typechecking expression
+  fn (a : Nat)
+{
+  return 0
+}

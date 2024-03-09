@@ -1,0 +1,11 @@
+language core;
+extend with
+  #ambiguous-type-as-bottom,
+  #lists,
+  #bottom-type;
+
+fn main(a : Nat) -> Bot {
+  return (fn (b : Nat) {
+    return []
+  })(0)
+}

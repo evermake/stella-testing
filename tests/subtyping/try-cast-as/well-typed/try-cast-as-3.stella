@@ -1,0 +1,9 @@
+language core;
+extend with #try-cast-as, #records;
+
+fn main(x : { a : Nat }) -> Bool {
+  return
+    try { x } cast as { a : Nat, b : Nat } {
+      y => true
+    } with { false }
+}

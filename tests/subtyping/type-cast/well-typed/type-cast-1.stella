@@ -1,0 +1,6 @@
+language core;
+extend with #type-cast, #top-type;
+
+fn main(a : Top) -> Nat {
+  return a cast as Nat
+}

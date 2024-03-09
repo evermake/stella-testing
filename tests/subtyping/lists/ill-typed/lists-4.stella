@@ -1,0 +1,9 @@
+language core;
+extend with
+  #structural-subtyping,
+  #top-type,
+  #lists;
+
+fn main(x : Top) -> [Bool] {
+  return [x, true]
+}

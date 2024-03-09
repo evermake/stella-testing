@@ -1,0 +1,13 @@
+language core;
+extend with
+  #structural-subtyping,
+  #top-type,
+  #sum-types,
+  #records;
+
+fn main(x : Nat + Bool) -> { a : Top } {
+  return match x {
+      inl(n) => { a = n }
+    | inr(b) => { a = b }
+  }
+}

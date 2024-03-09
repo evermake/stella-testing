@@ -1,0 +1,10 @@
+language core;
+extend with
+  #structural-subtyping,
+  #references,
+  #top-type,
+  #unit-type;
+
+fn main(x : &Top) -> Unit {
+  return x := 0
+}

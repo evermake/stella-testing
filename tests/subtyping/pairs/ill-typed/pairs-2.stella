@@ -1,0 +1,10 @@
+language core;
+extend with
+  #structural-subtyping,
+  #top-type,
+  #bottom-type,
+  #pairs;
+
+fn main(x : {fn(Nat) -> Nat, Nat}) -> {fn(Top) -> Bot, Nat} {
+  return x
+}

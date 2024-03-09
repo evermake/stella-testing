@@ -1,0 +1,9 @@
+language core;
+extend with
+  #structural-subtyping,
+  #top-type,
+  #sum-types;
+
+fn main(x : Nat + Top) -> Nat + Nat {
+  return x
+}

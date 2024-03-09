@@ -1,0 +1,14 @@
+language core;
+extend with #type-cast-patterns, #structural-subtyping, #top-type;
+
+fn isFalseOrZero(x : Top) -> Bool {
+  return match x {
+      n cast as Bool => Nat::iszero(n)
+    | b cast as Bool => if b then false else true
+    | default => false
+  }
+}
+
+fn main(n : Nat) -> Bool {
+  return isFalseOrZero(n)
+}

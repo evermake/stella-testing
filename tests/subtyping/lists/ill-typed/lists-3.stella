@@ -1,0 +1,10 @@
+language core;
+extend with
+  #structural-subtyping,
+  #top-type,
+  #bottom-type,
+  #lists;
+
+fn main(x : [fn([Nat]) -> Nat]) -> [fn([Top]) -> Bot] {
+  return x
+}

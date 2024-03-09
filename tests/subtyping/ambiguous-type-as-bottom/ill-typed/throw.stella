@@ -1,0 +1,14 @@
+language core;
+extend with
+  #ambiguous-type-as-bottom,
+  #exceptions,
+  #exception-type-declaration,
+  #bottom-type;
+
+exception type = Bot
+
+fn main(a : Nat) -> Nat {
+  return (fn (b : Nat) {
+    return throw(0)
+  })(0)
+}

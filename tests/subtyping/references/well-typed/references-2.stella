@@ -1,0 +1,9 @@
+language core;
+extend with
+  #structural-subtyping,
+  #references,
+  #records;
+
+fn main(x : &{ a : { b : Nat, c : Bool } }) -> &{ a : { c : Bool, b : Nat } } {
+  return x
+}

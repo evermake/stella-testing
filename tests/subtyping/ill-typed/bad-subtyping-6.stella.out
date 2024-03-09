@@ -1,0 +1,25 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
+missing fields
+  y
+for an expected record type
+  
+{
+  x : Nat, y : Nat
+}
+
+in the actual type
+  
+{
+  x : Nat
+}
+
+when typechecking expression
+  fn (a :
+{
+  x : Nat, y : Nat
+}
+)
+{
+  return 0
+}

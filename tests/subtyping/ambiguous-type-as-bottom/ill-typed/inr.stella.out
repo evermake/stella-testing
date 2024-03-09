@@ -1,0 +1,12 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+expected type
+  Nat + Bot
+but got
+  Bot + Nat
+for expression
+  (fn (b : Nat)
+{
+  return inr (0)
+}
+) (0)

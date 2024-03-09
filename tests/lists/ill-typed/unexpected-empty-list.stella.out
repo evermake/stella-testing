@@ -11,4 +11,4 @@ but got a list
 Alternative type errors:
 ========================
 Type Error Tag: [ERROR_AMBIGUOUS_LIST_TYPE]
-type inference of empty lists is not supported (use type ascriptions)
+type inference of empty lists is not supported (use type ascriptions or enable #ambiguous-type-as-bottom)

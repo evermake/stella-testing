@@ -1,0 +1,8 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_VARIANT_LABEL]
+unexpected variant labels
+  b
+for an expected variant type
+  <| |>
+in the variant type
+  <| b : Bool |>

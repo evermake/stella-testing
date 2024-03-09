@@ -1,0 +1,67 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
+missing fields
+  b
+for an expected record type
+  
+{
+  a : Nat, b : Nat
+}
+
+in the record
+  
+{
+  a = 0
+}
+
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
+missing fields
+  b
+for an expected record type
+  
+{
+  a : Nat, b : Nat
+}
+
+in the actual type
+  
+{
+  a : Nat
+}
+
+when typechecking expression
+  
+{
+  a = 0
+}
+
+-----
+Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
+missing fields
+  b
+for an expected record type
+  
+{
+  a : Nat, b : Nat
+}
+
+in the actual type
+  
+{
+  a : Nat
+}
+
+when typechecking expression
+  
+{
+  0,
+  {
+    a = 0
+  }
+}

@@ -2,8 +2,17 @@ An error occurred during typechecking!
 Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
 missing fields
   z
-for an expected record of type
+for an expected record type
   
 {
   x : Nat, z : Nat
 }
+
+in the actual type
+  
+{
+  x : Nat
+}
+
+when typechecking expression
+  f

@@ -21,4 +21,4 @@ but got a variant
 Alternative type errors:
 ========================
 Type Error Tag: [ERROR_AMBIGUOUS_VARIANT_TYPE]
-type inference for variants is not supported (use type ascriptions)
+type inference for variants is not supported (use type ascriptions or enable #structural-subtyping)

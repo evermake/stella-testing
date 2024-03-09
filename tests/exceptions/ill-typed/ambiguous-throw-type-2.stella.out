@@ -1,3 +1,3 @@
 An error occurred during typechecking!
 Type Error Tag: [ERROR_AMBIGUOUS_THROW_TYPE]
-cannot infer type for throw
+cannot infer type for throw (use type ascriptions or enable #ambiguous-type-as-bottom)

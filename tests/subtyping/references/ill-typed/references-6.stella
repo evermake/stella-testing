@@ -1,0 +1,9 @@
+language core;
+extend with
+  #structural-subtyping,
+  #references,
+  #top-type;
+
+fn main(x : &Top) -> Nat {
+  return *x
+}

@@ -1,0 +1,9 @@
+language core;
+extend with
+  #structural-subtyping,
+  #top-type,
+  #lists;
+
+fn main(xs : [Top]) -> [Nat] {
+  return cons(0, xs)
+}

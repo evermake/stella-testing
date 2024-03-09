@@ -1,0 +1,11 @@
+language core;
+extend with
+  #structural-subtyping,
+  #variants,
+  #bottom-type;
+
+fn main(a : Nat) -> Bot {
+  return (fn (b : Nat) {
+    return <| a = 0 |>
+  })(0)
+}

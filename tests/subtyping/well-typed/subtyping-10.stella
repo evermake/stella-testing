@@ -1,0 +1,8 @@
+language core;
+extend with #structural-subtyping, #top-type;
+
+fn main(n : Nat) -> fn(Nat) -> Nat {
+  return fn(a : Top) {
+    return 0
+  }
+}
