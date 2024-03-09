@@ -88,7 +88,9 @@ function getTestcaseConclusion(tc: {
     case "ok":
       return tc.actualExitCode === 0 ? 'correct' : 'incorrect'
     case "type-error":
-      if (result.primaryTags.some(tag => tc.actualOutput.includes(tag))) {
+      if (tc.actualExitCode === 0) {
+        return 'incorrect'
+      } if (result.primaryTags.some(tag => tc.actualOutput.includes(tag))) {
         return 'correct'
       } else if (result.alternativeTags.some(tag => tc.actualOutput.includes(tag))) {
         return 'partially-correct'
