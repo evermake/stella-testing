@@ -8,3 +8,4 @@ export type Report = Omit<ReportOriginal, "testcases"> & {
     name: string
   })[]
 }
+export type ReportTestcase = Report["testcases"][number]

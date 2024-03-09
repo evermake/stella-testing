@@ -1,31 +1,91 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { Report, TestcaseConclusion } from '../types';
+import { Report, TestcaseConclusion, ReportTestcase as ReportTestcaseType } from '../types';
 import ReportTestcase from './ReportTestcase.vue';
 
 const props = defineProps<{
   report: Report
 }>()
 
-const filter = ref('')
-const sorting = ref<'name-asc' | 'name-desc' | 'result-asc' | 'result-desc'>('result-desc')
-const sortedTestcases = computed(() => {
-  const sorted = props.report.testcases.toSorted((a, b) => {
-    if (sorting.value === 'name-asc') {
-      return a.name.localeCompare(b.name)
-    } else if (sorting.value === 'name-desc') {
-      return b.name.localeCompare(a.name)
-    } else if (sorting.value === 'result-asc') {
-      return compareTestcaseConclusion(a.conclusion, b.conclusion)
-    } else if (sorting.value === 'result-desc') {
-      return compareTestcaseConclusion(b.conclusion, a.conclusion)
+type PropertySorting<P extends string> = { prop: P, dir: 'asc' | 'desc' }
+type Sorting =
+  | PropertySorting<'result'>
+  | PropertySorting<'name'>
+
+/**
+ * Compares 2 strings by splitting them into parts of numbers and non-numbers.
+ * 
+ * @example
+ * compareStringsWithNumbers('a1', 'a2') // -1
+ * compareStringsWithNumbers('a2', 'a1') // 1
+ * compareStringsWithNumbers('a1', 'a1') // 0
+ * compareStringsWithNumbers('a3', 'a10') // -1
+ */
+function compareStringsWithNumbers(str1: string, str2: string): number {
+  const parts1 = str1.split(/(\d+)/).map(part => isNaN(+part) ? part : +part)
+  const parts2 = str2.split(/(\d+)/).map(part => isNaN(+part) ? part : +part)
+  for (let i = 0; i < parts1.length; i++) {
+    if (parts2[i] === undefined) {
+      return 1
+    }
+    if (parts1[i] === parts2[i]) {
+      continue
+    }
+    if (typeof parts1[i] === 'number' && typeof parts2[i] === 'number') {
+      return (parts1[i] as number) - (parts2[i] as number)
+    }
+    return (parts1[i] as string).localeCompare((parts2[i] as string))
+  }
+  return -1
+}
+
+/**
+ * Sorts two values by multiple sorting functions.
+ */
+function sortCombined<T>(values: T[], sorts: ((a: T, b: T) => number)[]): T[] {
+  return values.sort((a, b) => {
+    for (const sort of sorts) {
+      const result = sort(a, b)
+      if (result !== 0) {
+        return result
+      }
     }
     return 0
   })
+}
+
+const filter = ref('')
+// const sorting = ref<'name-asc' | 'name-desc' | 'result-asc' | 'result-desc'>('result-desc')
+const sortings = ref<Sorting[]>([
+  { prop: 'result', dir: 'desc' },
+  { prop: 'name', dir: 'asc' },
+])
+const sortedTestcases = computed(() => {
+  let filtered = props.report.testcases.slice()
+
   if (filter.value.trim()) {
-    return sorted.filter(tc => tc.name.includes(filter.value))
+    filtered = filtered.filter(tc => tc.name.includes(filter.value))
   }
-  return sorted
+
+  const sortingFuncs = sortings.value.map(sorting => {
+    if (sorting.prop === 'result') {
+      if (sorting.dir === 'asc') {
+        return (a: ReportTestcaseType, b: ReportTestcaseType) => compareTestcaseConclusion(a.conclusion, b.conclusion)
+      } else {
+        return (a: ReportTestcaseType, b: ReportTestcaseType) => compareTestcaseConclusion(b.conclusion, a.conclusion)
+      }
+    } else if (sorting.prop === 'name') {
+      if (sorting.dir === 'asc') {
+        return (a: ReportTestcaseType, b: ReportTestcaseType) => compareStringsWithNumbers(a.name, b.name)
+      } else {
+        return (a: ReportTestcaseType, b: ReportTestcaseType) => compareStringsWithNumbers(b.name, a.name)
+      }
+    } else {
+      return () => 0
+    }
+  })
+
+  return sortCombined<ReportTestcaseType>(filtered, sortingFuncs)
 })
 const stats = computed(() => {
   const stats_ = {
@@ -56,17 +116,38 @@ const stats = computed(() => {
 })
 
 function handleResultHeaderClick() {
-  if (sorting.value === 'result-asc') {
-    sorting.value = 'result-desc'
+  const prevDir = sortings.value.find(s => s.prop === 'result')?.dir ?? null
+  const newSortings = sortings.value.filter(s => s.prop !== 'result')
+  if (prevDir === null) {
+    sortings.value = [
+      ...newSortings,
+      { prop: 'result', dir: 'asc' },
+    ]
+  } else if (prevDir === 'asc') {
+    sortings.value = [
+      ...newSortings,
+      { prop: 'result', dir: 'desc' },
+    ]
   } else {
-    sorting.value = 'result-asc'
+    sortings.value = newSortings
   }
 }
+
 function handleNameHeaderClick() {
-  if (sorting.value === 'name-asc') {
-    sorting.value = 'name-desc'
+  const prevDir = sortings.value.find(s => s.prop === 'name')?.dir ?? null
+  const newSortings = sortings.value.filter(s => s.prop !== 'name')
+  if (prevDir === null) {
+    sortings.value = [
+      ...newSortings,
+      { prop: 'name', dir: 'asc' },
+    ]
+  } else if (prevDir === 'asc') {
+    sortings.value = [
+      ...newSortings,
+      { prop: 'name', dir: 'desc' },
+    ]
   } else {
-    sorting.value = 'name-asc'
+    sortings.value = newSortings
   }
 }
 
@@ -116,10 +197,18 @@ function compareTestcaseConclusion(
     <div class="table">
       <div class="table-head">
         <span @click="handleResultHeaderClick" class="head-result">
-          Result {{ sorting === 'result-asc' ? '↑' : sorting === 'result-desc' ? '↓' : '' }}
+          Result {{
+            sortings.some(s => s.prop === 'result')
+              ? sortings.find(s => s.prop === 'result')!.dir === 'asc' ? '↑' : '↓'
+              : ''
+          }}
         </span>
         <span @click="handleNameHeaderClick" class="head-name">
-          Name {{ sorting === 'name-asc' ? '↑' : sorting === 'name-desc' ? '↓' : '' }}
+          Name {{
+            sortings.some(s => s.prop === 'name')
+              ? sortings.find(s => s.prop === 'name')!.dir === 'asc' ? '↑' : '↓'
+              : ''
+          }}
         </span>
       </div>
       <ReportTestcase
