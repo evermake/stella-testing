@@ -1,0 +1,11 @@
+language core;
+
+extend with #references, #sequencing, #unit-type, #type-reconstruction;
+
+fn inc(ref : auto) -> Unit {
+    return ref := succ(*ref)
+}
+
+fn main(input : auto) -> auto {
+    return inc(new(input)); *input
+}

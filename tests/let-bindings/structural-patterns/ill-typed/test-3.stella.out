@@ -18,10 +18,5 @@ at least the following patterns are not matched:
 
   
 {
-  a = succ (0), b = true, c = __something__
-}
-
-  
-{
-  a = succ (succ (__something__)), b = true, c = __something__
+  a = succ (__something__), b = true, c = __something__
 }

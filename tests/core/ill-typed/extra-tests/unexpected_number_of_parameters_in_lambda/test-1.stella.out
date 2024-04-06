@@ -21,7 +21,7 @@ expected type
   fn (Nat, Nat) -> Nat
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (x : Nat)
 {
   return a

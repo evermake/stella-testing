@@ -7,7 +7,7 @@ expected type
   Bool
 but got
   Nat
-for expression
+when typechecking the expression
   x
 ========================
 Alternative type errors:
@@ -25,7 +25,7 @@ but got
   Nat, Nat
 }
 
-for expression
+when typechecking the expression
   
 {
   0, x

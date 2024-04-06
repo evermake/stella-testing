@@ -1,0 +1,18 @@
+language core;
+
+extend with #records, #type-reconstruction;
+
+fn mk(k : auto) -> { x : auto, y : auto } {
+  return
+    { x = { x = fn(x : auto) {
+                  return if k(succ(0))
+                    then if x then 0 else succ(0)
+                    else succ(succ(0))
+                }
+          , y = succ(0) }
+    , y = { c = 0 } }.x
+}
+
+fn main(x : auto) -> auto {
+  return mk(fn(x : auto) { return Nat::iszero(x)}).x(false)
+}

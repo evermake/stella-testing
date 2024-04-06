@@ -1,0 +1,11 @@
+language core;
+
+extend with #pairs, #type-reconstruction;
+
+fn swap(p : auto) -> auto {
+  return p;
+}
+
+fn main(x : auto) -> auto {
+  return swap({ {0, 0}, 0 }).1.2
+}

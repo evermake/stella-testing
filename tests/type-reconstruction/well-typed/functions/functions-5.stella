@@ -1,0 +1,15 @@
+language core;
+
+extend with #type-reconstruction;
+
+fn nest(a : Nat) -> auto {
+	return fn(b : Nat){
+    	return fn(c : Nat){
+        	return 0
+        }
+  	}
+}
+
+fn main(a : auto) -> auto {
+    return nest(0)(0)(0)
+}

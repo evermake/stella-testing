@@ -1,0 +1,13 @@
+language core;
+
+extend with #lists, #general-recursion, #type-reconstruction;
+
+fn length(list : [auto]) -> auto {
+  return if List::isempty([])
+    then 0
+    else succ(length(List::tail(list)))
+}
+
+fn main(n : auto) -> auto {
+  return length(cons(false, [n, n, n, 0, succ(n), false, n]))
+}

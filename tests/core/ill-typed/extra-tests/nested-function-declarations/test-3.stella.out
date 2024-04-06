@@ -4,5 +4,5 @@ expected type
   fn (Nat) -> fn (Nat) -> Nat
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   Nat2Nat::const (Nat::add (m))

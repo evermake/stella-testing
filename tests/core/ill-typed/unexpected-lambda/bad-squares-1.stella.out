@@ -26,7 +26,7 @@ expected type
   Nat
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (m : Nat)
 {
   return Nat::rec (n, m, fn (i : Nat)

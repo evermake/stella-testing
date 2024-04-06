@@ -23,7 +23,7 @@ but got
   Nat, Nat
 }
 
-for expression
+when typechecking the expression
   
 {
   0, 0

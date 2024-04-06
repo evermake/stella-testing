@@ -4,7 +4,7 @@ expected type
   fn (fn (Bool) -> Bool) -> fn (Bool) -> Bool
 but got
   fn (fn (Bool) -> Bool) -> fn (Bool) -> Nat
-for expression
+when typechecking the expression
   fn (f : fn (Bool) -> Bool)
 {
   return fn (a : Bool)

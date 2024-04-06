@@ -33,7 +33,7 @@ but got
   Nat, Nat, Nat, Nat
 }
 
-for expression
+when typechecking the expression
   
 {
   x, succ (x), succ (succ (x)), 0

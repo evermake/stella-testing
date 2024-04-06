@@ -1,0 +1,8 @@
+language core;
+
+extend with #records, #type-reconstruction;
+
+fn main(x : auto) -> auto {
+  return
+    { f = 0, g = fn(x : Bool) { return if x then succ(0) else 0 }}.g(false)
+}

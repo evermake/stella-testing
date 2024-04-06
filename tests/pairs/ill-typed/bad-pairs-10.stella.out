@@ -27,7 +27,7 @@ but got
   }
 }
 
-for expression
+when typechecking the expression
   x
 ========================
 Alternative type errors:
@@ -81,7 +81,7 @@ but got
   }
 }
 
-for expression
+when typechecking the expression
   
 {
   x, x

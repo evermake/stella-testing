@@ -1,0 +1,7 @@
+language core;
+
+extend with #lists, #type-reconstruction;
+
+fn main(n : auto) -> [Bool] {
+  return List::isempty([0])
+}

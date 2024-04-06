@@ -4,5 +4,5 @@ expected type
   Unit
 but got
   Bool
-for expression
+when typechecking the expression
   Nat::iszero (x)

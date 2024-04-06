@@ -23,7 +23,7 @@ but got
   Bool, Bool
 }
 
-for expression
+when typechecking the expression
   
 {
   true, false

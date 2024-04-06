@@ -4,5 +4,5 @@ expected type
   Unit
 but got
   fn (Unit) -> Unit
-for expression
+when typechecking the expression
   seq (unit)

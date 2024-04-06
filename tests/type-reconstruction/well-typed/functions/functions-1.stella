@@ -1,0 +1,15 @@
+language core;
+
+extend with #type-reconstruction;
+
+fn apply(f : fn(auto) -> auto) -> (fn(auto) -> auto) {
+  return f;
+}
+
+fn increase (n : auto) -> auto {
+  return n(0)(false);
+}
+  
+fn main(n : auto) -> auto {
+  return apply(increase)(n)(0);
+}

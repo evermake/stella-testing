@@ -4,5 +4,5 @@ expected type
   fn (Bool) -> Bool
 but got
   fn (fn (Bool) -> Bool) -> fn (Bool) -> Bool
-for expression
+when typechecking the expression
   c (n)

@@ -8,7 +8,7 @@ expected type
 
 but got
   fn (Bool) -> Nat
-for expression
+when typechecking the expression
   
 {
   x =

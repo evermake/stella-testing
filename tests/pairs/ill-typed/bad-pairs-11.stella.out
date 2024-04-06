@@ -23,7 +23,7 @@ but got
   Nat, Nat
 }
 
-for expression
+when typechecking the expression
   
 {
   x, x
@@ -46,7 +46,7 @@ but got
   }
 }
 
-for expression
+when typechecking the expression
   
 {
   x,

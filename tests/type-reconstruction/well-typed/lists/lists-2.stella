@@ -1,0 +1,17 @@
+language core;
+
+extend with #lists, #type-reconstruction;
+
+fn test(b : auto) -> auto {
+    return if Nat::iszero(b) then 0 else succ(succ(b));
+}
+
+fn length(list : [Nat]) -> auto {
+  return if List::isempty(list)
+    then 0
+    else succ(List::head(list))
+}
+
+fn main(n : auto) -> auto {
+  return length([succ(0), test(0), n])
+}

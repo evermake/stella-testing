@@ -1,0 +1,61 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+when unifying expected type
+  Bool
+against actual type
+  Nat
+when typechecking the expression
+  
+{
+  x =
+  {
+    x =
+    {
+      x =
+      {
+        x = 0, y = 0
+      }
+      , a =
+      {
+        x = 0, y = 0, z = true
+      }
+    }
+    , y =
+    {
+      x =
+      {
+        x = 0, y = 0
+      }
+      , y =
+      {
+        x = false, y = 0
+      }
+    }
+  }
+  , y =
+  {
+    a =
+    {
+      x =
+      {
+        x = 0, y = 0
+      }
+      , y =
+      {
+        x = 0, y = 0
+      }
+    }
+    , y =
+    {
+      x =
+      {
+        a = 0, y = 0
+      }
+      , y =
+      {
+        x = false, y = 0
+      }
+    }
+  }
+}
+. x . y . x . y

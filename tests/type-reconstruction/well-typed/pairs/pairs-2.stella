@@ -1,0 +1,17 @@
+language core;
+
+extend with #pairs, #type-reconstruction;
+
+fn swap(p : {Nat, auto}) -> {auto, Nat} {
+  return {p.2, p.1}
+}
+
+fn main(x : auto) -> auto {
+  return
+    (if false
+      then
+        { if true then swap({0, 0}).2 else swap({0, 0}).1
+        , if false then swap({0, 0}).1 else swap({0, 0}).2 }
+      else
+        swap({ 0, 0 })).2
+}

@@ -4,5 +4,5 @@ expected type
   fn (Y) -> Y
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   ignore [Y] (x) [Nat]

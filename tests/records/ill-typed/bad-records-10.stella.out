@@ -26,7 +26,7 @@ but got
   f : Nat, g : fn (Bool) -> Nat
 }
 
-for expression
+when typechecking the expression
   
 {
   f = 0, g = fn (x : Bool)

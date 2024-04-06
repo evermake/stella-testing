@@ -1,0 +1,15 @@
+language core;
+
+extend with #lists, #type-reconstruction;
+
+fn proc(list : [auto]) -> auto {
+  return if List::head(list)
+    then 0
+    else if List::tail(list)
+             then succ(0)
+             else succ(succ(0));
+}
+
+fn main(n : auto) -> auto {
+  return proc(cons(false, [true, false, true, false]))
+}

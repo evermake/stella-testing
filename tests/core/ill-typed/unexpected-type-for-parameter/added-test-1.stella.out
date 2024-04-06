@@ -25,7 +25,7 @@ expected type
   fn (Nat) -> Nat
 but got
   fn (fn (Nat) -> Nat) -> fn (fn (Nat) -> Nat) -> fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (first : fn (Nat) -> Nat)
 {
   return fn (second : fn (Nat) -> Nat)

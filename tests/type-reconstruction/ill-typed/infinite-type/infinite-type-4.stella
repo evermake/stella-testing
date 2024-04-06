@@ -1,0 +1,6 @@
+language core;
+extend with #type-reconstruction;
+
+fn main(a : Nat) -> auto {
+  return main
+}

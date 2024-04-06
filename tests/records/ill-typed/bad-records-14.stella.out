@@ -27,7 +27,7 @@ but got
   x : fn (Bool) -> Nat, y : Nat
 }
 
-for expression
+when typechecking the expression
   
 {
   x = fn (x : Bool)
@@ -58,7 +58,7 @@ but got
   }
 }
 
-for expression
+when typechecking the expression
   
 {
   x =

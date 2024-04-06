@@ -1,0 +1,12 @@
+language core;
+
+extend with #pairs, #type-reconstruction;
+
+fn f1(x : auto) -> { auto, auto } { return { x, x } }
+fn f2(x : { auto, auto }) -> { { auto, auto }, { Nat, Nat } } { return { x, x } }
+fn f3(x : { { auto, auto }, { auto, auto } }) -> { { { Nat, Nat }, { Nat, Nat } }, { { Nat, Nat }, { Nat, Nat } } } { return { x, x } }
+
+fn main(x : auto) -> auto {
+  return
+    f3(f2(f1(0))).2.1.2
+}

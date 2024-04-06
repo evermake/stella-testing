@@ -1,0 +1,23 @@
+language core;
+
+extend with #type-reconstruction;
+
+fn function_chooser(flag : auto) -> (fn(fn(auto) -> auto) -> (fn(fn(Nat) -> Nat) -> (fn(Nat) -> Nat))){
+    return fn(first : (fn(Nat) -> Nat) ) {
+        return fn(second : (fn(Nat) -> Nat) ) {
+            return if flag then first else second
+        }
+    }
+}
+
+fn add_once(a : auto) -> Nat {
+    return succ(a)
+}
+
+fn add_twice(a : auto) -> Nat {
+    return succ(add_once(a))
+}
+
+fn main(n : auto) -> Nat {
+    return function_chooser(false)(add_once)(add_twice)(n)
+}

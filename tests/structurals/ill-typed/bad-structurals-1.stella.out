@@ -7,7 +7,7 @@ expected type
   Bool
 but got
   Nat
-for expression
+when typechecking the expression
   n
 ========================
 Alternative type errors:
@@ -17,7 +17,7 @@ expected type
   Bool
 but got
   Nat
-for expression
+when typechecking the expression
   match input
 {
   inl (n) => n | inr (inl (b)) => if b then succ (0) else 0 | inr (inr (f)) => f (succ (0))

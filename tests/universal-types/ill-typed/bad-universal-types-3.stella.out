@@ -22,7 +22,7 @@ expected type
   fn (Y) -> X
 but got
   fn (X) -> X
-for expression
+when typechecking the expression
   fn (y : X)
 {
   return x

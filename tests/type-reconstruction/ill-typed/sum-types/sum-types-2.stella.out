@@ -1,0 +1,12 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+when unifying expected type
+  fn (Nat) -> Nat
+against actual type
+  ?T27 + (fn (Nat) -> Nat)
+when typechecking the expression
+  inr (inr (inr (fn (n : ?T5)
+{
+  return g (inl (n))
+}
+)))

@@ -1,0 +1,13 @@
+language core;
+
+extend with #exceptions, #exception-type-declaration, #type-reconstruction;
+
+exception type = auto
+
+fn main(n : auto) -> Nat{
+  return try {
+    true
+  } catch {
+    a => true
+  }
+}

@@ -1,0 +1,14 @@
+language core;
+
+extend with
+  #references,
+  #sequencing,
+  #let-bindings, 
+	#type-reconstruction;
+
+fn main(n : auto) -> auto {
+  return
+    let x = new(0) in
+    x := x;
+    *x
+}

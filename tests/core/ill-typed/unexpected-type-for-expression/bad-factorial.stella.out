@@ -7,7 +7,7 @@ expected type
   fn (Nat) -> Bool
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   f
 ========================
 Alternative type errors:
@@ -17,7 +17,7 @@ expected type
   fn (Nat) -> fn (Nat) -> Bool
 but got
   fn (Nat) -> fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (x : Nat)
 {
   return f

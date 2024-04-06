@@ -1,0 +1,8 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_OCCURS_CHECK_INFINITE_TYPE]
+cannot construct an infinite type when type
+  ?T1
+is expected to unify with
+  fn (Nat) -> ?T1
+when typechecking the expression
+  main

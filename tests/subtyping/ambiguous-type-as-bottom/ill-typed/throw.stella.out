@@ -4,7 +4,7 @@ expected type
   Nat
 but got
   Bot
-for expression
+when typechecking the expression
   (fn (b : Nat)
 {
   return throw (0)

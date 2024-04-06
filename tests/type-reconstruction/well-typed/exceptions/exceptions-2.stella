@@ -1,0 +1,9 @@
+language core;
+
+extend with #exceptions, #exception-type-declaration, #type-reconstruction;
+
+exception type = auto
+
+fn main(n : auto) -> Bool {
+  return try { true } with { false }
+}

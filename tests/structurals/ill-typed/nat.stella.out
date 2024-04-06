@@ -4,4 +4,4 @@ non-exhaustive pattern matches
 when matching on expression
   input
 at least the following patterns are not matched:
-  succ (0)
+  succ (__something__)

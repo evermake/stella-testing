@@ -7,7 +7,7 @@ expected type
   Bool
 but got
   Nat
-for expression
+when typechecking the expression
   y
 ========================
 Alternative type errors:
@@ -17,5 +17,5 @@ expected type
   Nat
 but got
   Bool
-for expression
+when typechecking the expression
   false

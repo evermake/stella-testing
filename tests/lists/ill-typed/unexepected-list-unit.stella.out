@@ -15,5 +15,5 @@ expected type
   Unit
 but got
   [Unit]
-for expression
+when typechecking the expression
   [unit]

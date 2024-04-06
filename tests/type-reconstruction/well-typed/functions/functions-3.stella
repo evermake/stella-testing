@@ -1,0 +1,11 @@
+language core;
+
+extend with #type-reconstruction;
+
+fn check(x : auto) -> auto {
+    return if (x) then succ(0) else 0
+}
+
+fn main(x : Bool) -> auto {
+    return succ(check(x))
+}

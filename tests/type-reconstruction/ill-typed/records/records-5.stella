@@ -1,0 +1,15 @@
+language core;
+
+extend with #records, #type-reconstruction;
+
+fn main(x : auto) -> Bool {
+  return
+    { x = { x = { x = { x = 0, y = 0}
+                , a = { x = 0, y = 0, z = true}}
+          , y = { x = { x = 0, y = 0}
+                , y = { x = false, y = 0}}}
+    , y = { a = { x = { x = 0, y = 0}
+                , y = { x = 0, y = 0}}
+          , y = { x = { a = 0, y = 0}
+                , y = { x = false, y = 0}}}}.x.y.x.y
+}

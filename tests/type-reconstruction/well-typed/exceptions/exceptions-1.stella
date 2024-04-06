@@ -1,0 +1,17 @@
+language core;
+
+extend with #exceptions, #exception-type-declaration, #type-reconstruction;
+
+exception type = auto
+
+fn fail(n : auto) -> auto {
+  return throw(succ(0))
+}
+
+fn main(n : auto) -> auto {
+  return try {
+    fail(n)
+  } catch {
+    a => true
+  }
+}

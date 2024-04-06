@@ -1,12 +1,14 @@
 An error occurred during typechecking!
-Type Error Tag: [ERROR_UNEXPECTED_PATTERN_FOR_TYPE]
-expected a pattern for 
-{
-  Nat, Bool, fn (Bool) -> Bool
-}
-
-but got
+Type Error Tag: [ERROR_NONEXHAUSTIVE_LET_PATTERNS]
+non-exhaustive pattern matches
+when matching on expression
   
 {
-  x, y, z, w
+  0, true, fn (x : Bool)
+  {
+    return if x then false else true
+  }
 }
+
+at least the following patterns are not matched:
+  __something__

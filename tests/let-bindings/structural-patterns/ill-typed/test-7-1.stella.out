@@ -1,12 +1,13 @@
 An error occurred during typechecking!
 Type Error Tag: [ERROR_UNEXPECTED_PATTERN_FOR_TYPE]
-expected a pattern for 
-{
-  a : Nat, b : Bool, c : fn (Bool) -> Bool
-}
-
-but got
+unexpected pattern
   
 {
   a = u, d = v, c = z
+}
+
+when pattern matching is expected for type
+  
+{
+  a : Nat, b : Bool, c : fn (Bool) -> Bool
 }

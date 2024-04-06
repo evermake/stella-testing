@@ -1,0 +1,11 @@
+language core;
+
+extend with #references, #type-reconstruction;
+
+fn chck(b : auto) -> auto {
+  return (if true then false else true)
+}
+
+fn main(b : auto) -> auto {
+  return chck(<0xABCDEF>)
+}

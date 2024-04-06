@@ -4,5 +4,5 @@ expected type
   fn (Bool) -> Nat
 but got
   fn (Bool) -> Bool
-for expression
+when typechecking the expression
   k (n)

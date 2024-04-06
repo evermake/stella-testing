@@ -7,7 +7,7 @@ expected type
   Nat
 but got
   Bool
-for expression
+when typechecking the expression
   false
 ========================
 Alternative type errors:
@@ -30,7 +30,7 @@ expected type
   fn (Bool) -> Bool
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (r : Nat)
 {
   return succ (r)
@@ -42,7 +42,7 @@ expected type
   fn (Nat) -> fn (Bool) -> Bool
 but got
   fn (Nat) -> fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (i : Nat)
 {
   return fn (r : Nat)

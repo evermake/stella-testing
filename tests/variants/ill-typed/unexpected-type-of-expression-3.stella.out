@@ -7,7 +7,7 @@ expected type
   <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
 but got
   <| number1 : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
-for expression
+when typechecking the expression
   <| number = n |>
 ========================
 Alternative type errors:

@@ -1,0 +1,20 @@
+language core;
+
+extend with #sum-types, #type-reconstruction;
+
+fn g(x : auto) -> auto {
+  return match x {
+      inl(n) => succ(n)
+    | inr(bf) => match bf {
+          inl(b) => if b then succ(0) else 0
+        | inr(f)  => match bf {
+              inl(b) => if b then succ(0) else 0
+            | inr(f) => f(f(succ(0)))
+        }
+      }
+  }
+}
+
+fn main(x : auto) -> auto {
+  return g(inr(inr(inr(fn(n : auto) { return g(inl(n)) }))))
+}

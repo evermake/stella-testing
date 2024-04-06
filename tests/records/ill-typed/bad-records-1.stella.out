@@ -7,7 +7,7 @@ expected type
   Nat
 but got
   Bool
-for expression
+when typechecking the expression
   p . y
 ========================
 Alternative type errors:
@@ -25,7 +25,7 @@ but got
   a : Nat, b : Bool, c : Nat
 }
 
-for expression
+when typechecking the expression
   
 {
   a = p . z, b = p . y, c = p . x

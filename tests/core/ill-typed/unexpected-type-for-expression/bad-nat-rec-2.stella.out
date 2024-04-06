@@ -4,7 +4,7 @@ expected type
   fn (Nat) -> fn (Nat) -> Nat
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   Nat::applyToZero (fn (i : Nat)
 {
   return fn (r : Nat)

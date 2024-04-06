@@ -7,7 +7,7 @@ expected type
   Bool
 but got
   Nat
-for expression
+when typechecking the expression
   g (if iszero (n) then false else true)
 ========================
 Alternative type errors:
@@ -17,7 +17,7 @@ expected type
   fn (Nat) -> Bool
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (n : Nat)
 {
   return g (if iszero (n) then false else true)

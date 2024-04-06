@@ -1,0 +1,12 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+when unifying expected type
+  & ?T13
+against actual type
+  Nat
+when typechecking the expression
+  swap (
+{
+  <0xABCDEF>, x
+}
+)

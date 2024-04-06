@@ -1,0 +1,20 @@
+language core;
+
+extend with #unit-type, #references, #sequencing, #type-reconstruction;
+
+fn inc_ref(ref : auto) -> auto {
+  return
+    ref := succ(*ref)
+}
+
+fn inc3(ref : auto) -> auto {
+  return
+    inc_ref(ref);
+    inc_ref(ref);
+    inc_ref(ref);
+    *ref
+}
+
+fn main(n : auto) -> auto {
+  return inc3(new(n))
+}

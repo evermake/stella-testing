@@ -1,0 +1,13 @@
+language core;
+
+extend with #pairs;
+extend with #references;
+extend with #type-reconstruction;
+
+fn swap(p : {auto, auto}) -> {auto, auto} {
+  return {p.1, p.2}
+}
+
+fn main(x : Nat) -> Nat {
+  return swap(swap({<0xABCDEF>, x})).2
+}

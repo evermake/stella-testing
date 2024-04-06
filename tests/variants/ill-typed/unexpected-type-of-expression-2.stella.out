@@ -7,7 +7,7 @@ expected type
   Bool
 but got
   Nat
-for expression
+when typechecking the expression
   succ (n)
 ========================
 Alternative type errors:
@@ -17,7 +17,7 @@ expected type
   Bool
 but got
   Nat
-for expression
+when typechecking the expression
   match x
 {
   <| number = n |> => succ (n) | <| boolean = b |> => if b then succ (0) else 0 | <| function = f |> => f (f (succ (0)))

@@ -1,0 +1,11 @@
+language core;
+
+extend with #records, #type-reconstruction;
+
+fn rotate3(p : {x : auto, y : auto, z : auto}) -> {a : auto, b : auto, c : auto} {
+  return {a = p.z, b = p.y, c = p.x}
+}
+
+fn main(x : auto) -> {a : auto, b : auto, c : auto} {
+  return rotate3({x = x, y = succ(x), z = succ(succ(x))})
+}

@@ -1,0 +1,11 @@
+language core;
+
+extend with #type-reconstruction;
+  
+fn f(n : auto) -> auto {
+  return f;
+}
+
+fn main(n : auto) -> auto {
+  return f(f);
+}

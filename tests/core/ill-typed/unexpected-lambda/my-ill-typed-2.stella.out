@@ -19,7 +19,7 @@ expected type
   Nat
 but got
   fn (Bool) -> Nat
-for expression
+when typechecking the expression
   fn (k : Bool)
 {
   return if k then succ (f) else succ (succ (f))

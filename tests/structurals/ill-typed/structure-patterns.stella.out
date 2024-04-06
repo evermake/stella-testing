@@ -1,7 +1,0 @@
-An error occurred during typechecking!
-Type Error Tag: [ERROR_NONEXHAUSTIVE_MATCH_PATTERNS]
-non-exhaustive pattern matches
-when matching on expression
-  input
-at least the following patterns are not matched:
-  inl (succ (succ (0)))

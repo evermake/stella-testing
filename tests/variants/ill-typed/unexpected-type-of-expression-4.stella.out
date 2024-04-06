@@ -7,7 +7,7 @@ expected type
   <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
 but got
   <| number : Bool, boolean : Bool, function : fn (Nat) -> Nat |>
-for expression
+when typechecking the expression
   <| function = fn (n : Nat)
 {
   return g (<| number = n |> as <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>)
@@ -21,7 +21,7 @@ expected type
   <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>
 but got
   <| number : Bool, boolean : Bool, function : fn (Nat) -> Nat |>
-for expression
+when typechecking the expression
   <| function = fn (n : Nat)
 {
   return g (<| number = n |> as <| number : Nat, boolean : Bool, function : fn (Nat) -> Nat |>)

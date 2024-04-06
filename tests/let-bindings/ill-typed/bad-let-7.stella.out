@@ -22,7 +22,7 @@ expected type
   fn (Bool) -> Bool
 but got
   fn (Nat) -> Bool
-for expression
+when typechecking the expression
   fn (x : Nat)
 {
   return n (false)

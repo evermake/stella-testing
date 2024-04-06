@@ -1,0 +1,7 @@
+language core;
+
+extend with #panic, #type-reconstruction;
+
+fn main(a : Bool) -> auto {
+  return panic!(Nat::iszero(a))
+}

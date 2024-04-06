@@ -4,7 +4,7 @@ expected type
   Nat
 but got
   Bool
-for expression
+when typechecking the expression
   
 {
   {

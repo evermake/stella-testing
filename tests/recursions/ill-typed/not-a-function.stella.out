@@ -7,7 +7,7 @@ expected type
   fn (Nat) -> Nat
 but got
   Bool
-for expression
+when typechecking the expression
   n
 ========================
 Alternative type errors:

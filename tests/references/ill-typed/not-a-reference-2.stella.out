@@ -7,7 +7,7 @@ expected type
   & & Nat
 but got
   & Nat
-for expression
+when typechecking the expression
   ref
 ========================
 Alternative type errors:
@@ -17,7 +17,7 @@ expected type
   & Nat
 but got
   Nat
-for expression
+when typechecking the expression
   * ref
 -----
 Type Error Tag: [ERROR_NOT_A_REFERENCE]

@@ -7,7 +7,7 @@ expected type
   [Nat]
 but got
   Nat
-for expression
+when typechecking the expression
   0
 ========================
 Alternative type errors:

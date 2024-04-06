@@ -7,7 +7,7 @@ expected type
   fn (Nat) -> Nat
 but got
   Nat
-for expression
+when typechecking the expression
   succ (r)
 ========================
 Alternative type errors:
@@ -17,7 +17,7 @@ expected type
   fn (Nat) -> fn (Nat) -> Nat
 but got
   fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (r : Nat)
 {
   return succ (r)

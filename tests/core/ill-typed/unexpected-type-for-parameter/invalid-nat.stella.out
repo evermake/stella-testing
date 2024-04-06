@@ -25,7 +25,7 @@ expected type
   fn (Bool) -> Bool
 but got
   fn (fn (Nat) -> Nat) -> fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (r : fn (Nat) -> Nat)
 {
   return fn (x : Nat)
@@ -40,7 +40,7 @@ expected type
   fn (Nat) -> fn (Bool) -> Bool
 but got
   fn (Nat) -> fn (fn (Nat) -> Nat) -> fn (Nat) -> Nat
-for expression
+when typechecking the expression
   fn (i : Nat)
 {
   return fn (r : fn (Nat) -> Nat)

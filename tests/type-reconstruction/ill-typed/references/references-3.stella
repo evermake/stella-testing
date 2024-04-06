@@ -1,0 +1,13 @@
+language core;
+
+extend with #general-recursion;
+extend with #references;
+extend with #type-reconstruction;
+
+fn swap(p : auto) -> auto {
+  return if p then p else *swap(true)
+}
+
+fn main(x : auto) -> auto {
+  return swap(x)
+}

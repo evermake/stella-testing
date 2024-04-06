@@ -1,0 +1,13 @@
+language core;
+
+extend with #type-reconstruction;
+
+fn twice(f : auto) -> auto {
+  return fn(n : auto) {
+    return (if Nat::iszero(n) then f(n) else f(f(n)))(n)
+  }
+}
+
+fn main(n : auto) -> auto {
+  return twice( fn(x : auto){ return n } )(n)
+}

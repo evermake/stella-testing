@@ -7,7 +7,7 @@ expected type
   Nat
 but got
   Bool
-for expression
+when typechecking the expression
   Nat::iszero (succ (a))
 ========================
 Alternative type errors:
@@ -17,7 +17,7 @@ expected type
   fn (Nat) -> Nat
 but got
   fn (Nat) -> Bool
-for expression
+when typechecking the expression
   fn (a : Nat)
 {
   return Nat::iszero (succ (a))

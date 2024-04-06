@@ -8,5 +8,5 @@ but got
   Nat, Bool
 }
 
-for expression
+when typechecking the expression
   y

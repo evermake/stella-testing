@@ -1,0 +1,13 @@
+language core;
+
+extend with #panic, #type-reconstruction;
+
+fn div(n : auto) -> fn(auto) -> auto {
+  return fn(m : auto) {
+    return if Nat::iszero(m) then panic! else m
+  };
+}
+
+fn main(n : auto) -> Nat {
+  return div(n)(0);
+}

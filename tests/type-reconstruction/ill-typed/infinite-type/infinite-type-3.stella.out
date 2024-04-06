@@ -1,0 +1,8 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_OCCURS_CHECK_INFINITE_TYPE]
+cannot construct an infinite type when type
+  ?T3
+is expected to unify with
+  fn (?T3) -> ?T4
+when typechecking the expression
+  n

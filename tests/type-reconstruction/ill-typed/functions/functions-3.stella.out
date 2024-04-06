@@ -1,0 +1,21 @@
+An error occurred during typechecking!
+===================
+Primary type error:
+===================
+Type Error Tag: [ERROR_UNEXPECTED_TYPE_FOR_EXPRESSION]
+when unifying expected type
+  fn (?T10) -> ?T11
+against actual type
+  Nat
+when typechecking the expression
+  add_once (a)
+========================
+Alternative type errors:
+========================
+Type Error Tag: [ERROR_NOT_A_FUNCTION]
+when unifying expected type
+  fn (?T10) -> ?T11
+against actual type
+  Nat
+when typechecking the expression
+  add_once (a)

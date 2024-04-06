@@ -1,0 +1,21 @@
+An error occurred during typechecking!
+Type Error Tag: [ERROR_MISSING_RECORD_FIELDS]
+missing fields
+  x, y, z
+for an expected record type
+  
+{
+  x : ?T4, y : ?T5, z : ?T6
+}
+
+in the actual type
+  
+{
+  a : ?T11, b : ?T12, c : ?T13
+}
+
+when typechecking the expression
+  
+{
+  a = p . z, b = p . y, c = p . x
+}

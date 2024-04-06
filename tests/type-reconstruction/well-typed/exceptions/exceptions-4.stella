@@ -1,0 +1,14 @@
+language core;
+
+extend with
+  #natural-literals,
+  #let-bindings,
+  #panic, 
+  #type-reconstruction;
+
+fn main(n : Nat) -> auto {
+  return
+    let n = (succ (2)) in
+    let m = (succ (3)) in
+    if Nat::iszero(m) then panic! else (succ (0))
+}

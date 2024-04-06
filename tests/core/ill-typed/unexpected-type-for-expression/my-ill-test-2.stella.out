@@ -4,5 +4,5 @@ expected type
   fn (Bool) -> Bool
 but got
   Bool
-for expression
+when typechecking the expression
   twice (Bool::not) (b)

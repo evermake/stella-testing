@@ -1,0 +1,8 @@
+language core;
+
+extend with #pairs, #type-reconstruction;
+
+fn main(x : Nat) -> auto {
+  return
+    (fn(x : Bool) { return { { { x, x }, { x, x } }, { { x, Nat::iszero(x) }, { x, x } } } })(0)
+}
