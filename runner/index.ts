@@ -15,13 +15,17 @@ export class StellaRunner {
     await page.goto(getStellaHtmlFileUrl());
 
     let result = null
-    while (true) {
+    let tries = 100
+    while (tries--) {
       const preEl = await page.$("#__app__ pre")
       result = await preEl!.innerText()
       if (result !== "loading...") {
         break
       }
-      await sleep(500)
+      await sleep(100)
+    }
+    if (result === null) {
+      throw new Error("Failed to run the snippet.");
     }
 
     await page.close()
@@ -31,17 +35,20 @@ export class StellaRunner {
   }
 
   async typecheck(snippet: string): Promise<TypecheckResult> {
-    const dummyVarName = randomStr("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", 16)
+    // Run Stella snippet with "panic!" exression as input.
+    //
+    // 1) In case of well-typed snippet, interpreter will print panic message
+    // or return the successful output.
+    //
+    // 2) In case of ill-typed snippet, interpreter will fail with error
+    // and print typechecking error message that starts with:
+    // "An error occurred during typechecking!".
+    const output = (await this.run(snippet, "panic!")).trim()
 
-    // Run Stella snippet with dummy variable as an input.
-    // In case of well-typed snippet, interpreter will start typechecking the
-    // input and will try to run it and fail with "undefined variable" error.
-    const output = (await this.run(snippet, dummyVarName)).trim()
-
-    if (output.includes("[ERROR_UNDEFINED_VARIABLE]") && output.includes(dummyVarName)) {
-      return { ok: true }
-    } else {
+    if (output.toLowerCase().startsWith("an error occurred during typechecking")) {
       return { ok: false, output }
+    } else {
+      return { ok: true }
     }
   }
 }
@@ -93,12 +100,4 @@ function getStellaHtmlFileUrl() {
 
 function getStellaHtmlFilePath() {
   return path.resolve(dir, "tmp.html")
-}
-
-function randomStr(alphabet: string, len: number) {
-  let result = ""
-  for (let i = 0; i < len; i++) {
-    result += alphabet[Math.floor(Math.random() * alphabet.length)]
-  }
-  return result
 }
